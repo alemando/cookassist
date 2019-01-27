@@ -8,12 +8,12 @@ class DetalleReceta:
         self, numero, cantidad, 
         producto, receta):
         '''ATTRIBUTES
-            self._numero
+            
             self._cantidad
             self._producto
             self._receta
         '''
-        self.set_numero(numero)
+        
         self.set_cantidad(cantidad)
         self.set_producto(producto)
         self.set_receta(receta)
