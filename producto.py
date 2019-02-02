@@ -97,5 +97,6 @@ class Producto:
         return -1
 
     @staticmethod
+    
     def delete_element(posicion):
         Producto.ListProductos.pop(posicion)
