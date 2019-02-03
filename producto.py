@@ -74,6 +74,10 @@ class Producto:
 
     def get_detalle_recetas(self):
         return self._ListDetalleRecetas
+    
+    def agregar_cantidad(self, cantidad):
+        suma= (self.get_cantidad())+cantidad
+        self.set_cantidad(suma)
 
     def toString(self):
         Str = Mensajes.men.get('formatoProducto') % (
