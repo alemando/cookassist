@@ -250,8 +250,10 @@ class CookAssist:
         CookAssist.mensaje('ver_producto')
         opcion = input(CookAssist.mensaje('opcion', False))
         if opcion == '1':
+            pass
             
         elif opcion == '2':
+            pass
 
     @staticmethod
     def agregar_producto():
