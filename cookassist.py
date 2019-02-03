@@ -250,7 +250,14 @@ class CookAssist:
         CookAssist.mensaje('ver_producto')
         opcion = input(CookAssist.mensaje('opcion', False))
         if opcion == '1':
-            pass
+             codigo = input(CookAssist.mensaje('codigo', False))
+            producto = Producto.get_producto_by_codigo(codigo)
+            if producto is not None:
+                print(producto.toString())
+                return producto
+            else:
+                CookAssist.mensaje('codeNotFound')
+                return None
             
         elif opcion == '2':
             pass
