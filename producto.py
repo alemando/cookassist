@@ -97,6 +97,6 @@ class Producto:
         return -1
 
     @staticmethod
-    
-    def delete_element(posicion):
-        Producto.ListProductos.pop(posicion)
+    def delete_element(codigo):
+        pos = get(get_posicion_lista(codigo))
+        Producto.ListProductos.pop(pos)
