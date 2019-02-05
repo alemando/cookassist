@@ -4,7 +4,7 @@ from mensajes import Mensajes
 #from datos import Datos
 #from usuario import Usuario
 #from calificacion import Calificacion
-#from Receta import Receta
+from Receta import Receta
 from producto import Producto
 
 
@@ -76,8 +76,9 @@ class CookAssist:
         menu_calificacion = {
             '1': CookAssist.ver_receta,
             '2': CookAssist.agregar_receta,
-            '3': CookAssist.editar_calificacion,
-            '4': CookAssist.eliminar_calificacion
+            '3': CookAssist.editar_receta,
+            '4': CookAssist.editar_calificacion,
+            '5': CookAssist.eliminar_calificacion
         }
         return menu_calificacion.get(opcion)
 
@@ -228,13 +229,19 @@ class CookAssist:
     @staticmethod
     def agregar_receta():
         pass
-        '''
+        
         nombre = input(CookAssist.mensaje('nombre', False))
         tiempo_preparacion = int(input(CookAssist.mensaje('tiempo', False)))
         receta = Receta(nombre, tiempo_preparacion)
         CookAssist.mensaje('opcionesDetalleReceta')
         opcion = input(CookAssist.mensaje('opcion', False))
-        '''
+        if opcion == '1':
+            producto = get_producto_by_codigo(input(CookAssist.mensaje('codigo', False)))
+            cantidad = input(CookAssist.mensaje('cantidad', False))
+        
+    @staticmethod
+    def editar_receta():
+        pass
         
     @staticmethod
     def menu_producto():
