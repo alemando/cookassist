@@ -65,20 +65,20 @@ class Receta:
         return Str
 
     @staticmethod
-    def get_producto_by_codigo(codigo):
-        for producto in Producto.ListProductos:
-            if producto.get_codigo() == codigo:
-                return producto
+    def get_receta_by_codigo(codigo):
+        for receta in Receta.ListRecetas:
+            if receta.get_codigo() == codigo:
+                return receta
         return None
 
     @staticmethod
     def get_posicion_lista(codigo):
-        for i in range(0,len(Producto.ListProductos)):
-            if Producto.ListProductos[i].get_codigo() == codigo:
+        for i in range(0,len(Receta.ListReceta)):
+            if Receta.ListRecetas[i].get_codigo() == codigo:
                 return i
                 break
         return -1
 
     @staticmethod
     def delete_element(posicion):
-        Producto.ListProductos.pop(posicion)
+        Receta.ListRecetas.pop(posicion)
