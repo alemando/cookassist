@@ -216,20 +216,18 @@ class CookAssist:
 
     @staticmethod
     def ver_receta():
-        pass
         '''
         CookAssist.mensaje('opcionesVerReceta')
         opcion = input(CookAssist.mensaje('opcion', False))
         if opcion == '1':
-            pass    
+            pass  
         elif opcion == '2':
             pass
         '''
 
     @staticmethod
     def agregar_receta():
-        pass
-        
+       
         nombre = input(CookAssist.mensaje('nombre', False))
         tiempo_preparacion = int(input(CookAssist.mensaje('tiempo', False)))
         receta = Receta(nombre, tiempo_preparacion)
