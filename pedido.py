@@ -1,6 +1,6 @@
 from datetime import datetime
 
-class Pedido():
+class pedido():
 
     _num_pedidos = 0
     _fechas_pedidos = []
@@ -25,17 +25,20 @@ class Pedido():
         self.set_usuario(usuario)
         self.set_chef(chef)
 
-        Pedido._num_pedidos += 1
-        Pedido._fechas_pedidos.append(self.get_fecha())
-        Pedido._nombres_pedidos.append(self.get_nombre())
-        Pedido._usuarios_pedidos.append(self.get_usuario())
+        pedido._num_pedidos += 1
+        pedido._fechas_pedidos.append(self.get_fecha())
+        pedido._nombres_pedidos.append(self.get_nombre())
+        pedido._usuarios_pedidos.append(self.get_usuario())
 
     def set_fecha(self,fecha):
-        self._fecha = datetime.now()
-        self._fecha = ("Fecha: "+str(self._fecha.day)+"-"+
-            str(self._fecha.month)+"-"+str(self._fecha.year)+
-            " Hora: "+str(self._fecha.hour)+":"+
-            str(self._fecha.minute)+":"+str(self._fecha.second))
+        if(fecha != None):
+            self._fecha = datetime.now()
+            self._fecha = ("Fecha: "+str(self._fecha.day)+"-"+
+                str(self._fecha.month)+"-"+str(self._fecha.year)+
+                " Hora: "+str(self._fecha.hour)+":"+
+                str(self._fecha.minute)+":"+str(self._fecha.second))
+        else:
+            self._fecha = None
 
     def get_fecha(self):
         return self._fecha
@@ -70,14 +73,13 @@ class Pedido():
     def get_chef(self):
         return self._chef
 
-    def modify_all_values(self,nombre,fecha,descripcion,
-                        detalle,usuario,chef):
-        self.set_nombre(nombre)
-        self.set_fecha(fecha)
-        self.set_descripcion(descripcion)
-        self.set_detalle(detalle)
-        self.set_usuario(usuario)
-        self.set_chef(chef)
+    def delete_all_values(self):
+        self.set_nombre(None)
+        self.set_fecha(None)
+        self.set_descripcion(None)
+        self.set_detalle(None)
+        self.set_usuario(None)
+        self.set_chef(None)
 
     # Funcionalidades:   
 
@@ -87,20 +89,29 @@ class Pedido():
 
     # Pedidos totales del dia (fechas)
     def get_fechas_pedidos(self):
-        for i in self._fechas_pedidos:
-            return i
+        if(len(self._fechas_pedidos)>0):
+            b = ""
+            for i in self._fechas_pedidos:
+                b = str(i) + " --- " + b 
+            return b
         return None
 
     # Pedidos totales del dia (usuarios)
-    def get_usuarios_pedidos(self,key):  
-        for i in self._usuarios_pedidos:
-            return i
+    def get_usuarios_pedidos(self):  
+        if(len(self._usuarios_pedidos)>0):
+            c = ""
+            for i in self._usuarios_pedidos:
+                c = str(i) + " --- " + c 
+            return c
         return None
 
     # Pedidos totales del dia (nombres)
-    def get_nombres_pedidos(self,key):  
-        for i in self._nombres_pedidos:
-            return i
+    def get_nombres_pedidos(self):  
+        if(len(self._nombres_pedidos)>0):
+            d = ""
+            for i in self._nombres_pedidos:
+                d = str(i) + " --- " + d 
+            return d
         return None
 
     # Vaciar Todos los pedidos
@@ -108,13 +119,23 @@ class Pedido():
         self._fechas_pedidos.clear()
         self._nombres_pedidos.clear()
         self._usuarios_pedidos.clear()
-        Pedido._num_pedidos = 0
+        pedido._num_pedidos = 0
 
     # Ultimo pedido 
     def get_ultimo_pedido(self):
-        if(Pedido._num_pedidos>0):
+        if(pedido._num_pedidos>0):
             a = (str(self._nombres_pedidos[len(self._nombres_pedidos)-1])+" - "+
             str(self._usuarios_pedidos[len(self._usuarios_pedidos)-1])+" - "+
             str(self._fechas_pedidos[len(self._fechas_pedidos)-1]))
             return a
         return None
+
+    # Modificar todo
+    def modify_all_values(self,nombre,fecha,descripcion,
+                        detalle,usuario,chef):
+        self.set_nombre(nombre)
+        self.set_fecha(fecha)
+        self.set_descripcion(descripcion)
+        self.set_detalle(detalle)
+        self.set_usuario(usuario)
+        self.set_chef(chef)
