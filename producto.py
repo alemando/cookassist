@@ -94,7 +94,7 @@ class Producto:
     
     
     @staticmethod
-    def get_producto_by_nombre(nombre1)
+    def get_producto_by_nombre(nombre1):
         for producto in Producto.ListProductos:
             if Producto.get_nombre() == nombre1:
                 return producto
