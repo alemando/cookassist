@@ -58,6 +58,38 @@ class Mensajes:
     4. Eliminar calificación
     5. <-Atras
     ''',
+        
+    'menu_receta': '''
+    Menu Receta
+    1. Ver Receta
+    2. Agregar Receta
+    3. Editar Receta
+    4. Eliminar Receta
+    5. Editar Calificacion
+    6. Eliminar Calificacion
+    7. <- Atras
+    ''',
+    
+    'opcionesDetalleReceta':'''
+    Opciones Detalle Receta
+    1. Agregar Detalle
+    2. <- Atras
+    ''',
+        
+    'editar_receta': '''
+    Editar Receta
+    1. Editar Nombre
+    2. Editar Tiempo de Preparacion
+    3. Editar Detalle Receta
+    4. <- Atras
+    ''',
+        
+    'editar_DetalleReceta': '''
+    Editar Detalle Receta
+    1. Editar Cantidad
+    2. Eliminar Producto
+    3. <- Atras
+    ''',
     'menu_datos' : '''
     Menú Datoss
     1. Agregar datos ficticios
@@ -106,8 +138,7 @@ class Mensajes:
     ''',
     'opcionesVerReceta' : '''
     1. Buscar por código
-    2. Buscar por nombre
-    3. <-Atras
+    2. <-Atras
     ''',
     'tiempo' : 'Ingrese el tiempo de preparacion: ',
     'opcionesDetalleReceta' :'''
@@ -152,6 +183,39 @@ class Mensajes:
     4. Delete rating
     5. <-Back
     ''',
+        
+    'menu_receta': '''
+    Menu Recipe
+    1. View Recipe
+    2. Add Recipe
+    3. Update Recipe
+    4. Delete Recipe
+    5. Update Rating
+    6. Delete Rating
+    7. <- Back
+    ''',
+    
+    'opcionesDetalleReceta':'''
+    Recipe Detail Options
+    1. Add Detail
+    2. <- Back
+    ''', 
+    
+    'editar_receta': '''
+    Edit Recipe
+    1. Edit Name
+    2. Edit Preparation Time
+    3. Edit recipe detail
+    4. <- Back
+    ''',
+        
+    'editar_DetalleReceta': '''
+    Edit Recipe Detail
+    1. Edit Quantity
+    2. Delete Product
+    3. <- Back
+    ''',    
+        
     'menu_datos' : '''
     Menu Data
     1. Add ficticious data
