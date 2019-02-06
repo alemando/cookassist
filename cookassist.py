@@ -243,12 +243,11 @@ class CookAssist:
         CookAssist.mensaje('opcionesDetalleReceta')
         opcion = input(CookAssist.mensaje('opcion', False))
         if opcion == '1':
-            codigo = input(CookAssist.mensaje('codigo', False))
-            producto = get_producto_by_codigo(codigo)
+            producto = input(CookAssist.mensaje('producto', False))
             cantidad = input(CookAssist.mensaje('cantidad', False))
-         
-        
-        
+            DetalleReceta(producto, cantidad)
+            
+            
     @staticmethod
     def editar_receta():
         receta = CookAssist.ver_receta():
@@ -267,9 +266,10 @@ class CookAssist:
                 codigo = input(CookAssist.mensaje('codigo', False))
                 producto = get_producto_by_codigo(codigo)           
                 cantidad = input(CookAssist.mensaje('cantidad', False))
-                DetalleReceta.set_cantidad(cantidad)           
+                DetalleReceta.set_cantidad(cantidad) 
+                # se supone quedo saber que a que produto le estoy cambiando la cantidad           
             if opcion == '2':
-                           
+                pass           
                            
                            
             
