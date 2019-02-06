@@ -91,7 +91,16 @@ class Producto:
             if producto.get_codigo() == codigo:
                 return producto
         return None
-
+    
+    
+    @staticmethod
+    def get_producto_by_nombre(nombre1)
+        for producto in Producto.ListProductos:
+            if Producto.get_nombre() == nombre1:
+                return producto
+        return None
+    
+    
     @staticmethod
     def get_posicion_lista(codigo):
         for i in range(0,len(Producto.ListProductos)):
@@ -104,3 +113,5 @@ class Producto:
     def delete_element(codigo):
         pos = get(get_posicion_lista(codigo))
         Producto.ListProductos.pop(pos)
+        
+
