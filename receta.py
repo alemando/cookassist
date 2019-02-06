@@ -2,7 +2,7 @@
 
 class Receta:
 
-	ListRecetas = []
+    ListRecetas = []
     auto_increment_codigo = 0
 
     def __init__(
