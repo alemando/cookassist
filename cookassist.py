@@ -77,8 +77,9 @@ class CookAssist:
             '1': CookAssist.ver_receta,
             '2': CookAssist.agregar_receta,
             '3': CookAssist.editar_receta,
-            '4': CookAssist.editar_calificacion,
-            '5': CookAssist.eliminar_calificacion
+            '4': CookAssist.eliminar_receta,
+            '5': CookAssist.editar_calificacion,
+            '6': CookAssist.eliminar_calificacion
         }
         return menu_calificacion.get(opcion)
 
@@ -216,14 +217,17 @@ class CookAssist:
 
     @staticmethod
     def ver_receta():
-        '''
+        
         CookAssist.mensaje('opcionesVerReceta')
         opcion = input(CookAssist.mensaje('opcion', False))
         if opcion == '1':
-            pass  
+            codigo = input(CookAssist.mensaje('codigo',False))
+            receta= Receta.get_receta_by_codigo(codigo)
+            return receta                                   
         elif opcion == '2':
-            pass
-        '''
+            
+            
+        
 
     @staticmethod
     def agregar_receta():
@@ -234,13 +238,27 @@ class CookAssist:
         CookAssist.mensaje('opcionesDetalleReceta')
         opcion = input(CookAssist.mensaje('opcion', False))
         if opcion == '1':
-            producto = get_producto_by_codigo(input(CookAssist.mensaje('codigo', False)))
+            codigo = input(CookAssist.mensaje('codigo', False))
+            producto = get_producto_by_codigo(codigo)
             cantidad = input(CookAssist.mensaje('cantidad', False))
         
     @staticmethod
     def editar_receta():
-        pass
+        receta = CookAssist.ver_receta():
+        CookAssist.mensaje('editar_receta')
+                                               
+    @staticmethod
+    def eliminar_receta():
+        codigo = input(CookAssist.mensaje('codigo', False))
+        pop = Receta.get_posicion_lista(codigo)
+        opcion = input(CookAssist.mensaje('yesNo', False))
+        if opcion == '1':
+            Receta.delete_element(pop)                                        
         
+                                               
+                                               
+                                               
+                                               
     @staticmethod
     def menu_producto():
         menu_producto = {
