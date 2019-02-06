@@ -224,7 +224,12 @@ class CookAssist:
             codigo = input(CookAssist.mensaje('codigo',False))
             receta= Receta.get_receta_by_codigo(codigo)
             return receta                                   
-        elif opcion == '2':
+            if producto is not None:
+                print(Receta.toString())
+                return receta
+            else 
+                CookAssist.mensaje('CodeNotFound')
+                return none
             
             
         
@@ -241,12 +246,33 @@ class CookAssist:
             codigo = input(CookAssist.mensaje('codigo', False))
             producto = get_producto_by_codigo(codigo)
             cantidad = input(CookAssist.mensaje('cantidad', False))
+         
+        
         
     @staticmethod
     def editar_receta():
         receta = CookAssist.ver_receta():
         CookAssist.mensaje('editar_receta')
-                                               
+        opcion = input(CookAssist.mensaje('opcion', False))
+        if opcion == '1':
+            nombre = input(CookAssist.mensaje('nombre', False))
+            Receta.set_nombre(nombre)
+       elif opcion == '2':
+            tiempo = input(CookAssist.mensaje('tiempo_preparacion', False))
+            Receta.set_tiempo_preparacion(tiempo)
+       elif opcion == '3':
+            CookAssist.mensaje('editar_DetalleReceta')
+            opcion = input(CookAssist.mensaje('opcion', False)
+            if opcion =='1':
+                codigo = input(CookAssist.mensaje('codigo', False))
+                producto = get_producto_by_codigo(codigo)           
+                cantidad = input(CookAssist.mensaje('cantidad', False))
+                DetalleReceta.set_cantidad(cantidad)           
+            if opcion == '2':
+                           
+                           
+                           
+            
     @staticmethod
     def eliminar_receta():
         codigo = input(CookAssist.mensaje('codigo', False))
