@@ -18,8 +18,8 @@ class Producto:
         '''
         self._ListDetallePedidos = []
         self._ListDetalleRecetas = []
-        Producto.auto_increment_codigo +=1
-        self.set_codigo(str(Producto.auto_increment_codigo))
+        
+        self.set_codigo()
         self.set_nombre(nombre)
         self.set_categoria(categoria)
         self.set_cantidad(cantidad)
@@ -28,7 +28,8 @@ class Producto:
         Producto.ListProductos.append(self)
 
     def set_codigo(self, auto_increment_codigo):
-        self._codigo = Producto.auto_increment_codigo
+        Producto.auto_increment_codigo +=1
+        self._codigo = str(Producto.auto_increment_codigo)
 
     def get_codigo(self):
         return self._codigo

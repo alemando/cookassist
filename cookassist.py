@@ -4,11 +4,7 @@ from mensajes import Mensajes
 #from datos import Datos
 #from usuario import Usuario
 #from calificacion import Calificacion
-<<<<<<< HEAD
 from receta import Receta
-=======
-from Receta import Receta
->>>>>>> a1668c2b5ff36f28fbf3573d31c8e453420b36c6
 from producto import Producto
 
 
@@ -99,11 +95,8 @@ class CookAssist:
         
 
     @staticmethod
-<<<<<<< HEAD
-    def cambiar_idioma(opcion):
-=======
     def cambiar_idioma():
->>>>>>> a1668c2b5ff36f28fbf3573d31c8e453420b36c6
+
         opcion = input(Mensajes.texto_idioma)
         if opcion == '1':
             Mensajes.men = Mensajes.español
@@ -235,11 +228,7 @@ class CookAssist:
             if producto is not None:
                 print(Receta.toString())
                 return receta
-<<<<<<< HEAD
             else: 
-=======
-            else 
->>>>>>> a1668c2b5ff36f28fbf3573d31c8e453420b36c6
                 CookAssist.mensaje('CodeNotFound')
                 return none
             
@@ -262,17 +251,12 @@ class CookAssist:
             
     @staticmethod
     def editar_receta():
-<<<<<<< HEAD
-        receta = CookAssist.ver_receta()
-=======
         receta = CookAssist.ver_receta():
->>>>>>> a1668c2b5ff36f28fbf3573d31c8e453420b36c6
         CookAssist.mensaje('editar_receta')
         opcion = input(CookAssist.mensaje('opcion', False))
         if opcion == '1':
             nombre = input(CookAssist.mensaje('nombre', False))
             Receta.set_nombre(nombre)
-<<<<<<< HEAD
         elif opcion == '2':
             tiempo = input(CookAssist.mensaje('tiempo_preparacion', False))
             Receta.set_tiempo_preparacion(tiempo)
@@ -280,31 +264,14 @@ class CookAssist:
             CookAssist.mensaje('editar_DetalleReceta')
             opcionReceta = input(CookAssist.mensaje('opcion', False))
             if opcionReceta =='1':
-=======
-       elif opcion == '2':
-            tiempo = input(CookAssist.mensaje('tiempo_preparacion', False))
-            Receta.set_tiempo_preparacion(tiempo)
-       elif opcion == '3':
-            CookAssist.mensaje('editar_DetalleReceta')
-            opcion = input(CookAssist.mensaje('opcion', False)
-            if opcion =='1':
->>>>>>> a1668c2b5ff36f28fbf3573d31c8e453420b36c6
                 codigo = input(CookAssist.mensaje('codigo', False))
                 producto = get_producto_by_codigo(codigo)           
                 cantidad = input(CookAssist.mensaje('cantidad', False))
                 DetalleReceta.set_cantidad(cantidad) 
                 # se supone quedo saber que a que produto le estoy cambiando la cantidad           
-<<<<<<< HEAD
             elif opcionReceta == '2':
                 pass
-
-=======
-            if opcion == '2':
-                pass           
                            
-                           
-            
->>>>>>> a1668c2b5ff36f28fbf3573d31c8e453420b36c6
     @staticmethod
     def eliminar_receta():
         codigo = input(CookAssist.mensaje('codigo', False))
@@ -318,11 +285,7 @@ class CookAssist:
                                                
                                                
     @staticmethod
-<<<<<<< HEAD
     def menu_producto(opcion):
-=======
-    def menu_producto():
->>>>>>> a1668c2b5ff36f28fbf3573d31c8e453420b36c6
         menu_producto = {
             '1': CookAssist.ver_producto,
             '2': CookAssist.agregar_producto,
@@ -330,11 +293,7 @@ class CookAssist:
         }
         return menu_producto.get(opcion)
     
-<<<<<<< HEAD
     @staticmethod
-=======
-     @staticmethod
->>>>>>> a1668c2b5ff36f28fbf3573d31c8e453420b36c6
     def ver_producto():
         CookAssist.mensaje('ver_producto')
         opcion = input(CookAssist.mensaje('opcion', False))
@@ -357,13 +316,7 @@ class CookAssist:
             else:
                 CookAssist.mensaje('codeNotFound')
                 return None
-<<<<<<< HEAD
-
-            
-=======
-                           
->>>>>>> a1668c2b5ff36f28fbf3573d31c8e453420b36c6
-
+                
     @staticmethod
     def agregar_producto():
         pass
