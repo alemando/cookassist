@@ -113,3 +113,4 @@ class Producto:
     def delete_element(codigo):
         pos = get_posicion_lista(codigo)
         Producto.ListProductos.pop(pos)
+        
