@@ -18,7 +18,6 @@ class Producto:
         '''
         self._ListDetallePedidos = []
         self._ListDetalleRecetas = []
-        
         self.set_codigo()
         self.set_nombre(nombre)
         self.set_categoria(categoria)
