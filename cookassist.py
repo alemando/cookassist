@@ -300,21 +300,35 @@ class CookAssist:
                 print (ped.get_nombre()," pedido por ",ped.get_usuario(), " con ",ped.get_fecha())
         else:
             CookAssist.mensaje('pedidos_not_found',True)
-    
-    @staticmethod
+
     def agregar_pedido():
-        '''
         nombre = input(CookAssist.mensaje('agregar_pedido_1',False))
         descripcion = input(CookAssist.mensaje('agregar_pedido_2',False))
         usuario = input(CookAssist.mensaje('agregar_pedido_3',False))
         chef = input(CookAssist.mensaje('agregar_pedido_4',False))
-        p1 = Pedido(nombre,'fecha',descripcion,'detalle',usuario,chef)
-        '''
-        p = Pedido() # Objeto de Pruebas
+        
+        op1 = input(CookAssist.mensaje('agregar_detalle_pedido',False))
+        dp = []
+
+        while(op1 != '2'):
+            if(op1 == '1'):
+                d_codigo = input(CookAssist.mensaje('agregar_d_pedido_1',False))
+                d_cant = input(CookAssist.mensaje('agregar_d_pedido_2',False))
+                d_pedido = input(CookAssist.mensaje('agregar_d_pedido_3',False))
+                d_receta = input(CookAssist.mensaje('agregar_d_pedido_4',False))
+                d_prod = input(CookAssist.mensaje('agregar_d_pedido_5',False))
+                dp.append(Detalle_pedido(d_codigo,d_cant,d_pedido,d_receta,d_prod))
+            op1 = input(CookAssist.mensaje('agregar_detalle_pedido',False))
+        if(len(dp)==0):
+            dp.apend("Sin detalle")
+
+        Pedido(nombre,'fecha',descripcion,dp,usuario,chef) 
+        
+        #Pedido() # Objeto de Pruebas
 
         enter = input(CookAssist.mensaje('pedido_agregado',False))
 
-    @staticmethod
+
     def editar_pedido():
         op1 = int(input(CookAssist.mensaje('editar_pedido',False)))
         if(op1 == 1):
@@ -347,7 +361,6 @@ class CookAssist:
         else:
             CookAssist.mensaje('opcionNoValida',True)
         
-    @staticmethod
     def eliminar_pedido():
         op1 = input(CookAssist.mensaje('eliminar_pedido',False))
         if(op1 == '1'):
@@ -379,9 +392,10 @@ class CookAssist:
             CookAssist.mensaje('opcionNoValida',True)
 
     def vaciar_pedidos():
-        Pedido._list_pedidos.clear()                             
-        CookAssist.mensaje('pedido_eliminado',True)                                            
-                                               
+        Pedido._list_pedidos.clear()      
+        Pedido._num_pedidos_eliminados += len(Pedido._list_pedidos)
+        Detalle_pedido._list_detalle_pedido.clear()                       
+        CookAssist.mensaje('pedido_eliminado',True)       
                                                
                                                
     @staticmethod
