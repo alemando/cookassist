@@ -1,11 +1,10 @@
 from datetime import datetime
 
-class pedido():
+class Pedido():
 
-    _num_pedidos = 0
-    _fechas_pedidos = []
-    _nombres_pedidos = []
-    _usuarios_pedidos = []
+    _num_pedidos = 0 # Pedidos totales 
+    _num_pedidos_eliminados = 0
+    _list_pedidos = []
 
     def __init__ (self,nombre="Defecto",fecha="Defecto",descripcion="Defecto",
                 detalle="Defecto",usuario="Defecto",chef="Defecto"):
@@ -25,10 +24,8 @@ class pedido():
         self.set_usuario(usuario)
         self.set_chef(chef)
 
-        pedido._num_pedidos += 1
-        pedido._fechas_pedidos.append(self.get_fecha())
-        pedido._nombres_pedidos.append(self.get_nombre())
-        pedido._usuarios_pedidos.append(self.get_usuario())
+        Pedido._num_pedidos += 1
+        Pedido._list_pedidos.append(self)
 
     def set_fecha(self,fecha):
         if(fecha != None):
@@ -81,54 +78,21 @@ class pedido():
         self.set_usuario(None)
         self.set_chef(None)
 
-    # Funcionalidades:   
+    # Funcionalidades adicionales:   
 
     # Numero de pedidos totales
     def get_num_pedidos(self):
         return self._num_pedidos
 
-    # Pedidos totales del dia (fechas)
-    def get_fechas_pedidos(self):
-        if(len(self._fechas_pedidos)>0):
-            b = ""
-            for i in self._fechas_pedidos:
-                b = str(i) + " --- " + b 
-            return b
-        return None
-
-    # Pedidos totales del dia (usuarios)
-    def get_usuarios_pedidos(self):  
-        if(len(self._usuarios_pedidos)>0):
-            c = ""
-            for i in self._usuarios_pedidos:
-                c = str(i) + " --- " + c 
-            return c
-        return None
-
-    # Pedidos totales del dia (nombres)
-    def get_nombres_pedidos(self):  
-        if(len(self._nombres_pedidos)>0):
-            d = ""
-            for i in self._nombres_pedidos:
-                d = str(i) + " --- " + d 
-            return d
-        return None
 
     # Vaciar Todos los pedidos
     def del_tot_pedidos(self):
-        self._fechas_pedidos.clear()
-        self._nombres_pedidos.clear()
-        self._usuarios_pedidos.clear()
-        pedido._num_pedidos = 0
+        Pedido._list_pedidos.clear()
 
     # Ultimo pedido 
     def get_ultimo_pedido(self):
-        if(pedido._num_pedidos>0):
-            a = (str(self._nombres_pedidos[len(self._nombres_pedidos)-1])+" - "+
-            str(self._usuarios_pedidos[len(self._usuarios_pedidos)-1])+" - "+
-            str(self._fechas_pedidos[len(self._fechas_pedidos)-1]))
-            return a
-        return None
+        if(len(Pedido._list_pedidos)>0):
+            return Pedido._list_pedidos[len(Pedido._list_pedidos)-1]
 
     # Modificar todo
     def modify_all_values(self,nombre,fecha,descripcion,
