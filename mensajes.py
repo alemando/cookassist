@@ -162,6 +162,16 @@ class Mensajes:
     'agregar_pedido_2':'Inserte descripción del pedido: ',
     'agregar_pedido_3':'Inserte usuario del pedido: ',
     'agregar_pedido_4':'Inserte chef del pedido: ',
+    'agregar_detalle_pedido':'''
+    Detalle de pedidos
+    1. Agregar detalle de pedidos
+    2. <- Terminar 
+    ''',
+    'agregar_d_pedido_1':'Inserte codigo del detalle: ',
+    'agregar_d_pedido_2':'Inserte cantidad del detalle: ',
+    'agregar_d_pedido_3':'Inserte pedido del detalle: ',
+    'agregar_d_pedido_4':'Inserte receta del detalle: ',
+    'agregar_d_pedido_5':'Inserte producto del detalle: ',
     
     'pedido_agregado':'''
     Pedido Agregado Correctamente, Presione enter para continuar...''',
@@ -169,7 +179,7 @@ class Mensajes:
     Editar Pedido
     1. Buscar por fecha (formato de un digito: 01 = 1)
     2. <- Atras
-    
+
     ''',
 
     'pedido_fecha_d':'Inserte dia: ',
