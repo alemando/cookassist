@@ -20,7 +20,8 @@ class Mensajes:
     5. Menu Idiomas
     6. Menu Recetas
     7. Menu Productos
-    8. Salir
+    8. Menu Pedidos 
+    9. Salir
     ''',
     'menu_producto' : '''
     Menú Productos
@@ -146,7 +147,51 @@ class Mensajes:
     2. Editar Ingrediente
     3. 
 
-    '''
+    ''',
+    'menu_pedido':'''
+    Menu Pedido
+    1. Ver Pedidos
+    2. Agregar Pedido
+    3. Editar Pedido
+    4. Eliminar Pedido
+    5. Vaciar Pedidos
+    6. <- Atras 
+    ''',
+    'pedidos_not_found':'No se encontraron pedidos, agregue alguno primero...',
+    'agregar_pedido_1':'Inserte nombre del pedido: ',
+    'agregar_pedido_2':'Inserte descripción del pedido: ',
+    'agregar_pedido_3':'Inserte usuario del pedido: ',
+    'agregar_pedido_4':'Inserte chef del pedido: ',
+    
+    'pedido_agregado':'''
+    Pedido Agregado Correctamente, Presione enter para continuar...''',
+    'editar_pedido':'''
+    Editar Pedido
+    1. Buscar por fecha (formato de un digito: 01 = 1)
+    2. <- Atras
+    
+    ''',
+
+    'pedido_fecha_d':'Inserte dia: ',
+    'pedido_fecha_m':'Inserte mes: ',
+    'pedido_fecha_a':'Inserte año: ',
+    'pedido_fecha_h':'Inserte hora: ',
+    'pedido_fecha_min':'Inserte minuto: ',
+    'pedido_fecha_s':'Inserte segundo: ',
+    'editar_pedido_2':'''
+    Inserte valores a editar: 
+
+    ''',
+    'fecha_not_found':'Fecha no encontrada, presione enter para continuar...',
+
+    'eliminar_pedido':'''
+    Eliminar Pedido
+    1. Eliminar por fecha
+    2. Eliminar ultimo pedido
+    3. <- Atras
+
+    ''',
+    'pedido_eliminado':'Pedido(s) eliminado(s) correctamente... '
     }
 
     ingles = {
