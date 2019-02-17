@@ -306,7 +306,6 @@ class CookAssist:
     @staticmethod
     def change_login_way():
         option = input(CookAssist.mensaje('login_way', False))
-        email = CookAssist.user.get_email()
         if option == '1':
             CookAssist.chef = False
         else:
