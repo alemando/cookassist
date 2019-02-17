@@ -4,10 +4,11 @@ class Producto:
 
     ListProductos = []
     auto_increment_codigo = 0
+    
 
     def __init__(
             self, nombre, categoria, cantidad,
-            medicion, necesario):
+            medicion, necesario, estado):
         '''ATTRIBUTES
             self._id
             self._nombre
@@ -15,6 +16,7 @@ class Producto:
             self._categoria
             self._medicion
             self._necesario
+            self._estado
         '''
         self._ListDetallePedidos = []
         self._ListDetalleRecetas = []
@@ -24,6 +26,7 @@ class Producto:
         self.set_cantidad(cantidad)
         self.set_medicion(medicion)
         self.set_necesario(necesario)
+        self.set_estado(estado)
         Producto.ListProductos.append(self)
 
     def set_codigo(self, auto_increment_codigo):
@@ -62,6 +65,12 @@ class Producto:
 
     def get_necesario(self):
         return self._necesario
+
+    def set_estado(self, estado):
+        self._estado = estado
+
+    def get_estdo(self):
+        return self._estado
 
     def set_detalle_pedidos(self, detalle_pedido):
         self._ListDetallePedidos.append(detalle_pedido)
