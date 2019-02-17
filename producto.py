@@ -2,7 +2,7 @@ from mensajes import Mensajes
 
 class Producto:
 
-    ListProductos = []
+    ListProductos = {}
     auto_increment_codigo = 0
     
 
@@ -27,7 +27,7 @@ class Producto:
         self.set_medicion(medicion)
         self.set_necesario(necesario)
         self.set_estado(estado)
-        Producto.ListProductos.append(self)
+        Producto.ListProductos[self.get_codigo()] = self
 
     def set_codigo(self):
         Producto.auto_increment_codigo +=1

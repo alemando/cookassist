@@ -677,7 +677,7 @@ class CookAssist:
             
         elif opcion == '2':
             nombre1 = input(CookAssist.mensaje('nombre', False))
-            producto = Producto.get_producto_ny_nombre(nombre1)
+            producto = Producto.get_producto_by_nombre(nombre1)
             if producto is not None:
                 print(producto.toString())
                 return producto
