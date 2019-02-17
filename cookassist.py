@@ -128,6 +128,7 @@ class CookAssist:
     def sign_off():
         CookAssist.mensaje('sign_off')
         CookAssist.user = None
+        CookAssist.chef = False
 
     @staticmethod
     def close():
@@ -208,6 +209,11 @@ class CookAssist:
         CookAssist.user = Usuario.check_login(email, password)
         if CookAssist.user is None:
             CookAssist.mensaje('user_not_found')
+        chef = Chef.get_chef_by_email(CookAssist.user.get_email())
+        if chef:
+            status = chef.get_status_chef()
+            if status:
+                CookAssist.change_login_way()
 
     @staticmethod
     def new_user():
