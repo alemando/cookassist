@@ -29,7 +29,7 @@ class Producto:
         self.set_estado(estado)
         Producto.ListProductos.append(self)
 
-    def set_codigo(self, auto_increment_codigo):
+    def set_codigo(self):
         Producto.auto_increment_codigo +=1
         self._codigo = str(Producto.auto_increment_codigo)
 
@@ -115,11 +115,10 @@ class Producto:
         for i in range(0,len(Producto.ListProductos)):
             if Producto.ListProductos[i].get_codigo() == codigo:
                 return i
-                break
         return -1
 
     @staticmethod
     def delete_element(codigo):
-        pos = get_posicion_lista(codigo)
+        pos = Producto.get_posicion_lista(codigo)
         Producto.ListProductos.pop(pos)
         
