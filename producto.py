@@ -7,13 +7,12 @@ class Producto:
     
 
     def __init__(
-            self, nombre, categoria, cantidad,
+            self, nombre, cantidad,
             medicion, necesario, estado):
         '''ATTRIBUTES
             self._id
             self._nombre
             self._cantidad
-            self._categoria
             self._medicion
             self._necesario
             self._estado
@@ -22,7 +21,6 @@ class Producto:
         self._ListDetalleRecetas = []
         self.set_codigo()
         self.set_nombre(nombre)
-        self.set_categoria(categoria)
         self.set_cantidad(cantidad)
         self.set_medicion(medicion)
         self.set_necesario(necesario)
@@ -41,12 +39,6 @@ class Producto:
 
     def get_nombre(self):
         return self._nombre
-
-    def set_categoria(self, categoria):
-        self._categoria = categoria
-
-    def get_categoria(self):
-        return self._categoria
 
     def set_cantidad(self, cantidad):
         self._cantidad = cantidad

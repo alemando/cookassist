@@ -677,13 +677,15 @@ class CookAssist:
             
         elif opcion == '2':
             nombre1 = input(CookAssist.mensaje('nombre', False))
-            producto = Producto.get_producto_by_nombre(nombre1)
-            if producto is not None:
-                print(producto.toString())
-                return producto
-            else:
-                CookAssist.mensaje('codeNotFound')
-                return None
+            producto1 = Producto.get_producto_by_nombre(nombre1)
+            for producto2 in producto1:
+                if producto2 is not None:
+                    print(producto2.toString())
+                    return producto2
+                
+                else:
+                    CookAssist.mensaje('codeNotFound')
+                    return None
                 
     @staticmethod
     def agregar_producto():

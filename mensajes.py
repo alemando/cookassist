@@ -13,7 +13,7 @@ class Mensajes:
     'sign_off' : 'Cerrando sesion',
     'enter' : '''
     Bienvenido a CookAssist
-    es usted un?
+    ¿es usted un?
     1. Usuario registrado
     2. Usuario sin registrar
     3. Salir
@@ -251,7 +251,7 @@ class Mensajes:
     Seleccione una opción: ''',
     'chef_not_found' : 'Chef no encontrado',
     'chef_promote' : '''
-    Esta seguro de querer promover al usuario?
+    ¿Esta seguro de querer promover al usuario?
     1. Si
     2. No
     Seleccione una opción: ''',
@@ -272,6 +272,13 @@ class Mensajes:
     2. Buscar producto por nombre
     3. <-Atras
     ''',
+    'agregar_producto': '''
+
+    '''
+
+
+
+
     'menu_calificacion' : '''
     Menú Calificaciónes
     1. Ver calificación
