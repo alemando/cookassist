@@ -82,7 +82,7 @@ class Producto:
 
     def toString(self):
         Str = Mensajes.men.get('formatoProducto') % (
-            self.get_codigo(), self.get_nombre(), self.get_categoria(),
+            self.get_codigo(), self.get_nombre(),
             self.get_cantidad(), self.get_medicion(), self.get_necesario())
         return Str
 
@@ -93,7 +93,7 @@ class Producto:
         if pro.get_estado() ==  True:
             pro.set_estado(False)
         else:
-            break   
+              
 
     @staticmethod
     def get_producto_by_codigo(codigo):
