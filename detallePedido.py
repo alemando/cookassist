@@ -1,9 +1,9 @@
 class Detalle_pedido():
     
     _list_detalle_pedido = []
+    _codigo_d_p = 0
 
-    def __init__(self,codigo = "Defecto",cantidad = "Defecto",pedido = "Defecto",
-                receta = "Defecto",producto = "Defecto"):
+    def __init__(self,cantidad,receta,producto):
         """Atributos:
         self.codigo
         self.cantidad
@@ -11,12 +11,12 @@ class Detalle_pedido():
         self.receta
         self.producto
         """
-        self.set_codigo(codigo)
+        self.set_codigo(Detalle_pedido._codigo_d_p)
         self.set_cantidad(cantidad)
-        self.set_pedido(pedido)
         self.set_receta(receta) 
         self.set_producto(producto)
         Detalle_pedido._list_detalle_pedido.append(self)
+        Detalle_pedido._codigo_d_p += 1
 
     def set_codigo(self,codigo):
         self._codigo = codigo
@@ -53,4 +53,6 @@ class Detalle_pedido():
         self.set_pedido(None)
         self.set_receta(None) 
         self.set_producto(None)
+
+
 
