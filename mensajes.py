@@ -191,6 +191,52 @@ class Mensajes:
     2. Ver mejores recetas
     3. <-Atras
     Seleccione una opción: ''',
+    'opcionesDetalleReceta1':'''
+    Opciones Detalle Receta
+    1. Agregar Detalle
+    2. Terminar Detalle
+    ''',
+    'producto':'''
+    Agregar producto
+    ''',
+    'cantidad':'''
+    Agregar cantidad
+    ''',
+    'codigo':'''
+    Codigo receta
+    ''',
+    'receta':'''
+    Receta a la cual se desea meter el detalle
+    ''',
+    'opcionesVerTodasRecetas':'''
+    Enter para ver todas las recetas activas
+    ''',
+    'Receta_Agregada':'''
+    Agregado correctamente
+    Presiona enter para continuar...
+    ''',
+    'estado':'''
+    Si desea que la receta este activa ingrese 1
+    Si desea que no este activa ingrese 0
+    ''',
+    'opciones_activar_desactivar':'''
+    1. Desactivar con codigo
+    2. Acivar con codigo
+    3. <-Atras 
+    ''',    
+    'editar_receta': '''
+    Editar Receta
+    1. Editar Nombre
+    2. Editar Tiempo de Preparacion
+    3. Editar Detalle Receta
+    4. <- Atras
+    ''',
+    'editar_DetalleReceta': '''
+    Editar Detalle Receta
+    1. Editar cantidad
+    2. Eliminar detalle
+    3. <- Atras
+    ''',    
     'menu_pedio_chef' : '''
     Menú Pedido
     1. ver pedidos a mi cargo
