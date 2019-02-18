@@ -492,17 +492,6 @@ class CookAssist:
                 }
             option = input(CookAssist.mensaje('menu_receta_user', False))
         return menu.get(option)
-    
-    @staticmethod
-    def menu_pedido(opcion):
-        menu_pedido = {
-            '1': CookAssist.ver_pedidos,
-            '2': CookAssist.agregar_pedido,
-            '3': CookAssist.editar_pedido,
-            '4': CookAssist.eliminar_pedido,
-            '5': CookAssist.vaciar_pedidos
-        }
-        return menu_pedido.get(opcion)
 
     @staticmethod
     def ver_receta():
@@ -611,108 +600,224 @@ class CookAssist:
                 receta.set_estado(1)                                        
         
     @staticmethod
-    def ver_pedidos():
-        if(len(Pedido._list_pedidos)>0):
-            for ped in Pedido._list_pedidos:
-                print (ped.get_nombre()," pedido por ",ped.get_usuario(), " con ",ped.get_fecha())
-        else:
-            CookAssist.mensaje('pedidos_not_found',True)
+    def set_chef_pedido():
+        option = input(CookAssist.mensaje('set_chef_pedido', False))
+        while option != '3':
+            if option == '1':
+                if(Pedido.get_primer_pedido() != None):
+                    CookAssist.user.set_pedidos_chef(Pedido.get_primer_pedido())
+                else:
+                    CookAssist.mensaje('pedidos_false_not_found',True)
+            elif option == '2':
+                fecha = "Fecha: "
+                dia = input(CookAssist.mensaje('pedido_fecha_d',False))
+                fecha += str(dia)
+                mes = input(CookAssist.mensaje('pedido_fecha_m',False))
+                fecha += ("-"+str(mes))
+                año = input(CookAssist.mensaje('pedido_fecha_a',False))
+                fecha += ("-"+str(año))
+                hora = input(CookAssist.mensaje('pedido_fecha_h',False))
+                fecha += (" Hora: " + hora)
+                minuto = input(CookAssist.mensaje('pedido_fecha_min',False))
+                fecha += (":"+minuto)
+                seg = input(CookAssist.mensaje('pedido_fecha_s',False))
+                fecha += (":"+seg)
+                for p in Pedido._list_pedidos:
+                    if(p.get_fecha() == fecha and p.get_estado() == False):
+                        CookAssist.user.set_pedidos_chef(p)
+                    else:
+                        CookAssist.mensaje('pedidos_false_not_found',True)
+            option = input(CookAssist.mensaje('set_chef_pedido', False))
 
+    @staticmethod
+    def menu_pedido():
+        menu = {}
+        option = None
+        if CookAssist.chef:  # Ver Pedidos, Asignar pedidos
+            menu = {
+                '1': CookAssist.ver_pedidos,
+                '2': CookAssist.set_chef_pedido
+            }
+            option = input(CookAssist.mensaje('pedido_chef', False))
+        
+        elif CookAssist.user.get_admin(): # ver, editar, eliminar
+            menu = {
+                '1': CookAssist.ver_pedidos,
+                '2': CookAssist.editar_pedido,
+                '3': CookAssist.eliminar_pedido
+            }
+            option = input(CookAssist.mensaje('pedido_admin', False))
+        else: # hacer pedidos , ver mis pedidos
+            menu = {
+                '1': CookAssist.ver_pedidos,
+                '2': CookAssist.agregar_pedido
+            }
+            option = input(CookAssist.mensaje('pedido_user', False))
+        
+        return menu.get(option)
+
+    @staticmethod
+    def ver_pedidos():
+        if(CookAssist.chef):
+            if(len(Pedido._list_pedidos)>0):
+                for ped in Pedido._list_pedidos:
+                    if(ped.get_estado()):
+                        print (ped.get_codigo(), ' pedido por ',ped.get_usuario(), ' Entregado')
+                    else:
+                        print(ped.get_codigo(), ' pedido por ',ped.get_usuario(), ' No entregado')
+            else:
+                CookAssist.mensaje('pedidos_not_found',True)
+        elif(CookAssist.user.get_admin()):
+            if(len(Pedido._list_pedidos)>0):
+                for ped in Pedido._list_pedidos:
+                    print('Codigo: ',ped.get_codigo(),', Usuario: ',ped.get_usuario().get_email())
+            else:
+                CookAssist.mensaje('pedidos_not_found',True)
+        else:
+            if(len(CookAssist.user._ListPedidos)>0):
+                for ped in CookAssist.user._ListPedidos:
+                    if(CookAssist.user._ListPedidos[ped].get_estado()):
+                        print (CookAssist.user._ListPedidos[ped].get_codigo(),' Entregado')
+                    else:
+                        print(CookAssist.user._ListPedidos[ped].get_codigo(), ' No entregado')
+            else:
+                CookAssist.mensaje('pedidos_not_found',True)
+
+    @staticmethod
     def agregar_pedido():
-        nombre = input(CookAssist.mensaje('agregar_pedido_1',False))
+
+        usuario = CookAssist.user
+        codigo = Pedido._num_pedidos
         descripcion = input(CookAssist.mensaje('agregar_pedido_2',False))
-        usuario = input(CookAssist.mensaje('agregar_pedido_3',False))
-        chef = input(CookAssist.mensaje('agregar_pedido_4',False))
+        
+        while descripcion == '?':
+            CookAssist.mensaje('pedido_ayuda_des',True)
+            descripcion = input(CookAssist.mensaje('agregar_pedido_2',False))
         
         op1 = input(CookAssist.mensaje('agregar_detalle_pedido',False))
         dp = []
 
-        while(op1 != '2'):
+        while(op1 != '2'): #Detalle
             if(op1 == '1'):
-                d_codigo = input(CookAssist.mensaje('agregar_d_pedido_1',False))
+                
                 d_cant = input(CookAssist.mensaje('agregar_d_pedido_2',False))
-                d_pedido = input(CookAssist.mensaje('agregar_d_pedido_3',False))
-                d_receta = input(CookAssist.mensaje('agregar_d_pedido_4',False))
-                d_prod = input(CookAssist.mensaje('agregar_d_pedido_5',False))
-                dp.append(Detalle_pedido(d_codigo,d_cant,d_pedido,d_receta,d_prod))
-            op1 = input(CookAssist.mensaje('agregar_detalle_pedido',False))
-        if(len(dp)==0):
-            dp.apend("Sin detalle")
+                
+                op2 = input(CookAssist.mensaje('agregar_d_pedido_3',False)) #Receta
+                d_receta = None
+                while(op2 != '3'):
+                    if op2 == '1':
+                        CookAssist.ver_todas_recetas()
+                    elif op2 == '2':
+                        d_receta_code = (input(CookAssist.mensaje('agregar_d_pedido_4',False)))
+                        if((Receta.get_receta_by_codigo(d_receta_code)).get_codigo() == (d_receta_code)):
+                            d_receta = Receta.get_receta_by_codigo(d_receta_code).get_codigo()
+                        else:
+                            CookAssist.mensaje('receta_not_found',True)
+                    elif op2 == '3':
+                        pass
+                    else:
+                        CookAssist.mensaje('pedido_opcion_no_valida',False)
+                    op2 = input(CookAssist.mensaje('agregar_d_pedido_3',False))
 
-        Pedido(nombre,'fecha',descripcion,dp,usuario,chef) 
-        
-        #Pedido() # Objeto de Pruebas
+                op2 = input(CookAssist.mensaje('agregar_d_pedido_5',False)) #Producto
+                d_prod = None
+                find = False
+                while(op2 != '3'):
+                    if op2 == '1':
+                        CookAssist.ver_producto()
+                    elif op2 == '2':
+                        d_prod_code = str(input(CookAssist.mensaje('agregar_d_pedido_4',False)))
+                        for p in Producto.ListProductos:
+                            if(p == d_prod_code): 
+                                d_prod = Producto.ListProductos[p]
+                                find = True
+                        if(not find):
+                            CookAssist.mensaje('producto_not_found',True)
+                    elif op2 == '3':
+                        pass
+                    else:
+                        CookAssist.mensaje('pedido_opcion_no_valida',False)
+                    op2 = input(CookAssist.mensaje('agregar_d_pedido_5',False))
+
+                # Cant - Receta - Producto
+
+                dp.append(Detalle_pedido(d_cant,d_receta,d_prod))
+
+            op1 = input(CookAssist.mensaje('agregar_detalle_pedido',False))
+
+        d_pedido = Pedido(descripcion,dp,usuario) 
+        CookAssist.user.set_pedidos(d_pedido)
+
+        for d_p in dp:
+            d_p.set_pedido(d_pedido)
 
         enter = input(CookAssist.mensaje('pedido_agregado',False))
 
-
-    def editar_pedido():
-        op1 = int(input(CookAssist.mensaje('editar_pedido',False)))
-        if(op1 == 1):
-            fecha = "Fecha: "
-            dia = input(CookAssist.mensaje('pedido_fecha_d',False))
-            fecha += str(dia)
-            mes = input(CookAssist.mensaje('pedido_fecha_m',False))
-            fecha += ("-"+str(mes))
-            año = input(CookAssist.mensaje('pedido_fecha_a',False))
-            fecha += ("-"+str(año))
-            hora = input(CookAssist.mensaje('pedido_fecha_h',False))
-            fecha += (" Hora: " + hora)
-            minuto = input(CookAssist.mensaje('pedido_fecha_min',False))
-            fecha += (":"+minuto)
-            seg = input(CookAssist.mensaje('pedido_fecha_s',False))
-            fecha += (":"+seg)
-            for f in Pedido._list_pedidos:
-                if(f.get_fecha() == fecha):
-                    CookAssist.mensaje('editar_pedido_2',True)
-                    nombre = input(CookAssist.mensaje('agregar_pedido_1',False))
-                    descripcion = input(CookAssist.mensaje('agregar_pedido_2',False))
-                    usuario = input(CookAssist.mensaje('agregar_pedido_3',False))
-                    chef = input(CookAssist.mensaje('agregar_pedido_4',False))
-                    p1 = Pedido(nombre,'fecha',descripcion,'detalle',usuario,chef)
-                    f.modify_all_values(nombre,'fecha',descripcion,'detalle',usuario,chef)
-                else:
-                    op_r = input(CookAssist.mensaje('fecha_not_found',False))
-        elif(op1 == 2):
-            pass
-        else:
-            CookAssist.mensaje('opcionNoValida',True)
+    @staticmethod
+    def editar_pedido(): #Admin - Chef
+        """op1 = int(input(CookAssist.mensaje('editar_pedido',False)))
+        while op1 != 2 :
+            if(op1 == 1):
+                # editar por fecha 
+                for f in Pedido._list_pedidos:
+                    if(f.get_fecha() == fecha):
+                        pass
+                        # editar valores
+                    else:
+                        op_r = input(CookAssist.mensaje('fecha_not_found',False))
+            elif(op1 == 2):
+                code = input(CookAssist.mensaje('agregar_pedido_1'),False)
+                for f in Pedido._list_pedidos:
+                    if f.get_codigo() == code:
+                        pass
+            elif(op1 == 3):
+                pass
+            else:
+                CookAssist.mensaje('pedido_opcion_no_valida',True)
+            op1 = int(input(CookAssist.mensaje('editar_pedido',False)))"""
+        pass
         
-    def eliminar_pedido():
-        op1 = input(CookAssist.mensaje('eliminar_pedido',False))
-        if(op1 == '1'):
-            fecha = "Fecha: "
-            dia = input(CookAssist.mensaje('pedido_fecha_d',False))
-            fecha += str(dia)
-            mes = input(CookAssist.mensaje('pedido_fecha_m',False))
-            fecha += ("-"+str(mes))
-            año = input(CookAssist.mensaje('pedido_fecha_a',False))
-            fecha += ("-"+str(año))
-            hora = input(CookAssist.mensaje('pedido_fecha_h',False))
-            fecha += (" Hora: " + hora)
-            minuto = input(CookAssist.mensaje('pedido_fecha_min',False))
-            fecha += (":"+minuto)
-            seg = input(CookAssist.mensaje('pedido_fecha_s',False))
-            fecha += (":"+seg)
-            for f in Pedido._list_pedidos:
-                if(f.get_fecha() == fecha):
-                    Pedido._list_pedidos.remove(f)
-                    Pedido._num_pedidos_eliminados += 1
-                    CookAssist.mensaje('pedido_eliminado',True)
-                    break
-        elif(op1 == '2'):
-            Pedido._list_pedidos.pop()
-            CookAssist.mensaje('pedido_eliminado',True)
-        elif(op1 == '3'):
-            pass
-        else:
-            CookAssist.mensaje('opcionNoValida',True)
+    @staticmethod
+    def eliminar_pedido(): # Chef
+        op = input(CookAssist.mensaje('eliminar_pedido',False))
+        while op != '4':
+            if(op == '1'):
+                fecha = "Fecha: "
+                dia = input(CookAssist.mensaje('pedido_fecha_d',False))
+                fecha += str(dia)
+                mes = input(CookAssist.mensaje('pedido_fecha_m',False))
+                fecha += ("-"+str(mes))
+                año = input(CookAssist.mensaje('pedido_fecha_a',False))
+                fecha += ("-"+str(año))
+                hora = input(CookAssist.mensaje('pedido_fecha_h',False))
+                fecha += (" Hora: " + hora)
+                minuto = input(CookAssist.mensaje('pedido_fecha_min',False))
+                fecha += (":"+minuto)
+                seg = input(CookAssist.mensaje('pedido_fecha_s',False))
+                fecha += (":"+seg)
+                for f in Pedido._list_pedidos:
+                    if(f.get_fecha() == fecha):
+                        Pedido._list_pedidos.remove(f)
+                        Pedido._num_pedidos_eliminados += 1
+                        CookAssist.mensaje('pedido_eliminado',True)
+                        break
+            elif(op == '2'):
+                Pedido._list_pedidos.pop()
+                CookAssist.mensaje('pedido_eliminado',True)
+            elif(op == '3'):
+                CookAssist.vaciar_pedidos()
+            elif(op == '4'):
+                pass
+            else:
+                CookAssist.mensaje('pedido_opcion_no_valida',True)
+            op = input(CookAssist.mensaje('eliminar_pedido',False))
 
+    @staticmethod
     def vaciar_pedidos():
         Pedido._list_pedidos.clear()      
         Pedido._num_pedidos_eliminados += len(Pedido._list_pedidos)
         Detalle_pedido._list_detalle_pedido.clear()                       
-        CookAssist.mensaje('pedido_eliminado',True)       
+        CookAssist.mensaje('pedido_eliminado',True)          
                                                
                                                
     @staticmethod
@@ -773,6 +878,7 @@ class CookAssist:
         Chef(True, 'juanca5481999@gmail.com', 'Juan Jaramillo', '12345','7/11/1999')
         Chef(True, 'alemandoa@gmail.com', 'Alejandro Jiménez', '12345', '28/10/1999')
         Usuario(False, 'ejemplo@gmail.com', 'NN', '12345', '01/01/1963')
+        Usuario(True),'juan@dios.net','juan','apocalipsis','01/01/0001')
         while True:
 
             while CookAssist.user is None:
