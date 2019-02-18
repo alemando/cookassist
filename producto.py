@@ -69,7 +69,7 @@ class Producto:
     def set_estado(self, estado):
         self._estado = estado
 
-    def get_estdo(self):
+    def get_estado(self):
         return self._estado
 
     def set_detalle_pedidos(self, detalle_pedido):
@@ -93,6 +93,15 @@ class Producto:
             self.get_codigo(), self.get_nombre(), self.get_categoria(),
             self.get_cantidad(), self.get_medicion(), self.get_necesario())
         return Str
+
+
+    @staticmethod
+    def desactivar_producto(codigo):
+        pro = Producto.ListProductos.get(codigo)
+        if pro.get_estado() ==  True:
+            pro.set_estado(False)
+        else:
+            break   
 
     @staticmethod
     def get_producto_by_codigo(codigo):
