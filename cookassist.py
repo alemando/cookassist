@@ -752,7 +752,15 @@ class CookAssist:
                 
     @staticmethod
     def agregar_producto():
-        pass
+        name = input(CookAssist.mensaje('agregar_producto_1', False))
+        cant = input(CookAssist.mensaje('agregar_producto_2', False))
+        med = input(CookAssist.mensaje('agregar_producto_3', False))
+        neces = input(CookAssist.mensaje('agregar_producto_4', False))
+        stat = input(CookAssist.mensaje('agregar_producto_5', False))
+
+        Producto(name, cant, med, neces, stat)
+
+        enter1= input(CookAssist.mensaje('producto_agregado', False))
 
     @staticmethod
     def editar_producto():

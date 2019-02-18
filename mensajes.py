@@ -318,9 +318,15 @@ class Mensajes:
     2. Buscar producto por nombre
     3. <-Atras
     ''',
-    'agregar_producto': '''
 
-    '''
+    'agregar_producto_1' : 'Ingrese el nombre del producto: ',
+    'agregar_producto_2' : 'Ingrese la cantidad de este producto (SÓLO LA CANTIDAD): ',
+    'agregar_producto_3' : 'Ingrese la forma de medición de este producto (KG, L, Unidades): ',
+    'agregar_producto_4' : '¿Es este produicto necesario? (Si o no): ',
+    'agregar_producto_5' : '¿este producto estará disponible? (Si o no): ',
+
+    'producto_agregado' : 
+    '''Producto agregado correctamente, presione enter para continuar... '''
 
     'menu_calificacion': '''
     Menú Calificaciónes
