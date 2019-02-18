@@ -93,6 +93,7 @@ class Producto:
         if pro.get_estado() ==  True:
             pro.set_estado(False)
         else:
+            pass
               
 
     @staticmethod

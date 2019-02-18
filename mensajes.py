@@ -322,10 +322,7 @@ class Mensajes:
 
     '''
 
-
-
-
-    'menu_calificacion' : '''
+    'menu_calificacion': '''
     Menú Calificaciónes
     1. Ver calificación
     2. Agregar calificación

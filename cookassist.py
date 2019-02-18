@@ -461,7 +461,7 @@ class CookAssist:
         pass
     
 
-   @staticmethod
+    @staticmethod
     def menu_receta():
         menu = {}
         option = None
@@ -515,11 +515,11 @@ class CookAssist:
             print (receta.toString())
             return receta                                   
             if producto is not None:
-                print(Receta.toString())
+                print(receta.toString())
                 return receta
             else:
                 CookAssist.mensaje('CodeNotFound')
-                return none
+                return None
 
     @staticmethod
     def ver_todas_recetas():
@@ -531,7 +531,7 @@ class CookAssist:
                 print(receta.toString())
             
     @staticmethod
-    def ver_mejores_recetas()
+    def ver_mejores_recetas():
         pass
 
 
