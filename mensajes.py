@@ -396,39 +396,91 @@ class Mensajes:
     3. 
 
     ''',
-    'menu_pedido':'''
-    Menu Pedido
+    'pedido_chef':'''
+    Menu Pedido Chef
+    1. Ver Pedidos
+    2. Elegir Pedido Sin Entregar
+    3. Atras
+    Seleccione una opción: ''',
+
+    'pedido_admin':'''
+    Menu Pedido Admin
+    1. Ver Pedidos
+    2. Editar Pedido
+    3. Eliminar Pedido 
+    4. <- Atras
+    Seleccione una opción: ''',
+
+    'pedido_user':'''
+    Menu Pedido Usuario
     1. Ver Pedidos
     2. Agregar Pedido
-    3. Editar Pedido
-    4. Eliminar Pedido
-    5. Vaciar Pedidos
-    6. <- Atras 
+    3. Atras
+    Seleccione una opción: ''',
+
+    'set_chef_pedido':'''
+    Menu elegir pedido sin entregar
+    1. Elegir primer pedido encontrado
+    2. Elegir por fecha
+    3. <- Atras 
+    Seleccione una opción: ''',
+
+    'eliminar_pedido':'''
+    Eliminar Pedido
+    1. Eliminar por fecha
+    2. Eliminar ultimo pedido
+    3. Eliminar todos los pedidos
+    4. <- Atras
+    Seleccione una opción: ''',
+
+    'editar_pedido':'''
+    Editar Pedido
+    1. Buscar por fecha (formato de un digito: 01 = 1)
+    2. Buscar por codigo
+    3. <- Atras
+    Seleccione una opción: ''',
+
+    'pedido_eliminado':'Pedido(s) eliminado(s) correctamente... ',
+    'pedidos_false_not_found':'''No se encontraron pedidos (No entregados)... 
     ''',
+    'pedido_opcion_no_valida':'''Opción no valida, seleccione opcion correcta...
+    ''',
+
+
     'pedidos_not_found':'No se encontraron pedidos, agregue alguno primero...',
-    'agregar_pedido_1':'Inserte nombre del pedido: ',
-    'agregar_pedido_2':'Inserte descripción del pedido: ',
+    'agregar_pedido_2':'''
+    ?. Ayuda
+    Inserte descripción del pedido: ''',
+    'pedido_ayuda_des':'''
+    Información adicional sobre tus pedidos, por ejemplo, "No agregar sal"
+    Si no quieres agregar ninguna, escribe: "Sin descripcion"... ''',
     'agregar_pedido_3':'Inserte usuario del pedido: ',
-    'agregar_pedido_4':'Inserte chef del pedido: ',
     'agregar_detalle_pedido':'''
     Detalle de pedidos
     1. Agregar detalle de pedidos
     2. <- Terminar 
-    ''',
-    'agregar_d_pedido_1':'Inserte codigo del detalle: ',
-    'agregar_d_pedido_2':'Inserte cantidad del detalle: ',
-    'agregar_d_pedido_3':'Inserte pedido del detalle: ',
-    'agregar_d_pedido_4':'Inserte receta del detalle: ',
-    'agregar_d_pedido_5':'Inserte producto del detalle: ',
+    Seleccione una opción: ''',
+    'agregar_d_pedido_2':'Inserte cantidad:  ',
+    'agregar_d_pedido_3':'''
+    Inserte receta: 
+    1. Ver recetas disponibles
+    2. Elegir por codigo
+    3. No agregar receta
+    Seleccione una opción: ''',
+    'agregar_d_pedido_4':'''
+    Inserte codigo: ''',
+    'receta_not_found': 'No se encontro receta...',
+    'producto_not_found': 'No se encontro producto...',
+    'agregar_d_pedido_5':'''
+    Inserte producto
+    1. Ver productos disponibles
+    2. Elegir producto por codigo
+    3. No agregar mas productos
+     ''',
     
     'pedido_agregado':'''
     Pedido Agregado Correctamente, Presione enter para continuar...''',
-    'editar_pedido':'''
-    Editar Pedido
-    1. Buscar por fecha (formato de un digito: 01 = 1)
-    2. <- Atras
-
-    ''',
+    
 
     'pedido_fecha_d':'Inserte dia: ',
     'pedido_fecha_m':'Inserte mes: ',
@@ -440,16 +492,7 @@ class Mensajes:
     Inserte valores a editar: 
 
     ''',
-    'fecha_not_found':'Fecha no encontrada, presione enter para continuar...',
-
-    'eliminar_pedido':'''
-    Eliminar Pedido
-    1. Eliminar por fecha
-    2. Eliminar ultimo pedido
-    3. <- Atras
-
-    ''',
-    'pedido_eliminado':'Pedido(s) eliminado(s) correctamente... '
+    'fecha_not_found':'Fecha no encontrada, presione enter para continuar...'
     }
 
 
