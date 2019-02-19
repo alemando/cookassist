@@ -174,7 +174,8 @@ class Mensajes:
     3. Editar receta
     4. Activar/Desactivar receta
     5. Ver mejores recetas
-    6. <-Atras
+    6. Ver recetas activas/inactivas
+    7. <-Atras
     Seleccione una opción: ''',
     'menu_receta_admin' : '''
     Menú Receta
@@ -183,13 +184,15 @@ class Mensajes:
     3. Editar receta
     4. Activar/Desactivar receta
     5. Ver mejores recetas
-    6. <-Atras
+    6. Ver recetas activas/inactivas
+    7. <-Atras
     Seleccione una opción: ''',
     'menu_receta_user' : '''
     Menú Receta
-    1. Buscar receta
+    1. Receta activa/inactiva
     2. Ver mejores recetas
-    3. <-Atras
+    3. Ver recetas rapidas
+    4. <-Atras
     Seleccione una opción: ''',
     'opcionesDetalleReceta1':'''
     Opciones Detalle Receta
@@ -208,9 +211,6 @@ class Mensajes:
     'receta':'''
     Receta a la cual se desea meter el detalle
     ''',
-    'opcionesVerTodasRecetas':'''
-    Enter para ver todas las recetas activas
-    ''',
     'Receta_Agregada':'''
     Agregado correctamente
     Presiona enter para continuar...
@@ -220,9 +220,29 @@ class Mensajes:
     Si desea que no este activa ingrese 0
     ''',
     'opciones_activar_desactivar':'''
-    1. Desactivar con codigo
-    2. Acivar con codigo
+    1. Desactivar
+    2. Acivar
     3. <-Atras 
+    ''',
+    'opcionesVerReceta1':'''
+    1. Buscar receta por codigo
+    2. Buscar reteta por nombre
+    3 <- Atras
+    ''',
+    'opcionesVerTodasRecetas':'''
+    1. Ver recetas activas
+    2. Ver recetas inactivas
+    3. <- Atras
+    ''',
+    'opciones_activar_receta':'''
+    1. Activar por codigo
+    2. Activar por nombre
+    3. <- Atras    
+    ''',
+    'opciones_desactivar_receta':'''
+    1. Desactivar por codigo
+    2. Desactivar por nombre
+    3. <- Atras
     ''',    
     'editar_receta': '''
     Editar Receta
