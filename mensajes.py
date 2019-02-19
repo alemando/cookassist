@@ -350,6 +350,9 @@ class Mensajes:
     'producto_agregado' : 
     '''Producto agregado correctamente, presione enter para continuar... ''',
 
+    'buscar_prod_c' : '#   Codigo   Nombre ',
+    
+
     'ver_lista_compra' : '',
 
     'menu_calificacion': '''

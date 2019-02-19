@@ -911,14 +911,16 @@ class CookAssist:
         elif opcion == '2':
             nombre1 = input(CookAssist.mensaje('nombreP', False))
             producto1 = Producto.get_producto_by_nombre(nombre1)
-            for producto2 in producto1:
-                if producto2 is not None:
-                    print(producto2)
-                    return producto2
-                
-                else:
-                    CookAssist.mensaje('codeNotFound')
-                    return None
+            if len(producto1) != 0:
+                CookAssist.mensaje('buscar_prod_c')
+                for i in range(len(producto1)):
+                    num1= str(i+1)
+                    print(num1 + '   ' + producto1[i].get_codigo().zfill(6) + '   ' + producto1[i].get_nombre())
+                oppcion= int(input(CookAssist.mensaje('opcion', False)))
+                producto1 = producto1[(oppcion-1)]
+                print(producto1)
+            else:
+                CookAssist.mensaje('producto_not_found')
                 
     @staticmethod
     def agregar_producto():
