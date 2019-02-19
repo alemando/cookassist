@@ -1,7 +1,10 @@
 
+from detalleReceta import DetalleReceta
+from producto import Producto
+
 class Receta:
 
-    ListRecetas = []
+    ListRecetas = {}
     auto_increment_codigo = 0
 
     def __init__(
@@ -21,7 +24,7 @@ class Receta:
         self._ListDetalleRecetas = []
         self._ListDetallePedidos = []
         self._ListCalificaciones = []
-
+        Receta.ListRecetas[self.get_codigo()] = self
 
 
     def set_codigo(self, codigo):
@@ -69,23 +72,35 @@ class Receta:
     def get_calificaciones(self):
         return self._ListCalificaciones
 
+    def ver_detalle_receta(self):
+        lista=self.get_detalle_recetas()
+        for i in range(0, len(lista)):
+            print()
+            print (codigo)
+            producto = self._ListDetalleRecetas[i].DetalleReceta.get_producto()
+            print (producto)
+            cantidad = self._ListDetalleRecetas[i].get_cantidad()
+            print (cantidad)
+            return str(codigo, producto, cantidad)    
+
+
     def toString(self):
         Str =('codigo: '+self.get_codigo() +' nombre: '+ self.get_nombre()
-            +' tiempo_de_preparacion: '+self.get_tiempo_preparacion())
-        #concatenado el detalle receta
+            +' tiempo_de_preparacion: '+self.get_tiempo_preparacion()
+            + 'Detalle Receta'+ str(self.ver_detalle_receta()))
+
         return Str
 
     @staticmethod
     def get_receta_by_codigo(codigo):
-        for i in range(0,len(Receta.ListRecetas)):
-            if Receta.ListRecetas[i].get_codigo() == codigo:
-                return Receta.ListRecetas[i]
-        return None
-        
+        receta = Receta.ListRecetas.get(codigo)
+        return receta
+
+
     @staticmethod
-    def get_posicion_lista(codigo):
-        for i in range(0,len(Receta.ListRecetas)):
-            if Receta.ListRecetas[i].get_codigo() == codigo:
-                return i
-                break
-        return -1
+    def get_receta_by_nombre(receta1):
+        listaCoincidencias= []
+        for receta in Receta.ListRecetas.values():
+            if receta.get_nombre().lower().find(receta1.lower())!= -1:
+                listaCoincidencias.append(receta)
+                return listaCoincidencias  
