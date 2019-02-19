@@ -109,5 +109,11 @@ class Producto:
             if producto.get_nombre().lower().find(nombre1.lower())!= -1:
                 listaCoincidencias.append(producto)
         return listaCoincidencias
-        
-        
+
+    @staticmethod
+    def lista_de_compras():
+        lista_compras[]
+        for i in Producto.ListProductos.values():
+            if i.get_cantidad() <= 10:
+                lista_compras.append(i.get_nombre)
+        return lista_compras 

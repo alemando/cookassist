@@ -311,7 +311,8 @@ class Mensajes:
     1. Ver producto
     2. Agregar producto
     3. Modificar producto
-    4. <-Atras
+    4. Ver lista de productos a comprar
+    5. <-Atras
     ''',
     'ver_producto' : '''
     1. Buscar producto por código
@@ -327,6 +328,8 @@ class Mensajes:
 
     'producto_agregado' : 
     '''Producto agregado correctamente, presione enter para continuar... '''
+
+    'ver_lista_compra'
 
     'menu_calificacion': '''
     Menú Calificaciónes
