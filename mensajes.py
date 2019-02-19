@@ -339,17 +339,18 @@ class Mensajes:
     2. Buscar producto por nombre
     3. <-Atras
     ''',
-
+    'codigoP': 'Ingrese el código del producto: ',
+    'nombreP': 'Ingrese el nomber del producto: ',
+    
     'agregar_producto_1' : 'Ingrese el nombre del producto: ',
     'agregar_producto_2' : 'Ingrese la cantidad de este producto (SÓLO LA CANTIDAD): ',
     'agregar_producto_3' : 'Ingrese la forma de medición de este producto (KG, L, Unidades): ',
-    'agregar_producto_4' : '¿Es este produicto necesario? (Si o no): ',
-    'agregar_producto_5' : '¿este producto estará disponible? (Si o no): ',
+    'agregar_producto_5' : '¿este producto estará disponible? (True para sí o False para no): ',
 
     'producto_agregado' : 
-    '''Producto agregado correctamente, presione enter para continuar... '''
+    '''Producto agregado correctamente, presione enter para continuar... ''',
 
-    'ver_lista_compra'
+    'ver_lista_compra' : '',
 
     'menu_calificacion': '''
     Menú Calificaciónes
@@ -403,7 +404,7 @@ class Mensajes:
     'formatoProducto' : '''
     Código: %s
     Nombre: %s
-    Cantidad: %d %s
+    Cantidad: %s %s
     Necesario: %s
     ''',
     'nombre' : 'Digite el nombre: ',

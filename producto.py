@@ -8,7 +8,7 @@ class Producto:
 
     def __init__(
             self, nombre, cantidad,
-            medicion, necesario, estado):
+            medicion, estado):
         '''ATTRIBUTES
             self._id
             self._nombre
@@ -23,7 +23,6 @@ class Producto:
         self.set_nombre(nombre)
         self.set_cantidad(cantidad)
         self.set_medicion(medicion)
-        self.set_necesario(necesario)
         self.set_estado(estado)
         Producto.ListProductos[self.get_codigo()] = self
 
@@ -52,12 +51,6 @@ class Producto:
     def get_medicion(self):
         return self._medicion
 
-    def set_necesario(self, necesario):
-        self._necesario = necesario
-
-    def get_necesario(self):
-        return self._necesario
-
     def set_estado(self, estado):
         self._estado = estado
 
@@ -80,10 +73,10 @@ class Producto:
         suma= (self.get_cantidad())+cantidad
         self.set_cantidad(suma)
 
-    def toString(self):
+    def __str__(self):
         Str = Mensajes.men.get('formatoProducto') % (
             self.get_codigo(), self.get_nombre(),
-            self.get_cantidad(), self.get_medicion(), self.get_necesario())
+            self.get_cantidad(), self.get_medicion(), self.get_estado())
         return Str
 
 
@@ -99,7 +92,7 @@ class Producto:
     @staticmethod
     def get_producto_by_codigo(codigo):
         pro = Producto.ListProductos.get(codigo)
-        return pro.toString()
+        return pro
     
     
     @staticmethod
@@ -112,7 +105,7 @@ class Producto:
 
     @staticmethod
     def lista_de_compras():
-        lista_compras[]
+        lista_compras=[]
         for i in Producto.ListProductos.values():
             if i.get_cantidad() <= 10:
                 lista_compras.append(i.get_nombre)
