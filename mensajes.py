@@ -323,17 +323,6 @@ class Mensajes:
     Seleccione una opción: ''',
 
 
-
-
-
-    'menu_producto' : '''
-    Menú Productos
-    1. Ver producto
-    2. Agregar producto
-    3. Modificar producto
-    4. Ver lista de productos a comprar
-    5. <-Atras
-    ''',
     'ver_producto' : '''
     1. Buscar producto por código
     2. Buscar producto por nombre
@@ -351,7 +340,23 @@ class Mensajes:
     '''Producto agregado correctamente, presione enter para continuar... ''',
 
     'buscar_prod_c' : '#   Codigo   Nombre ',
-    
+
+    'seleccionar_producto': '''
+    Para modificar la cantidad de un producto 
+    primero debe seleccionarlo, 
+    por favor ingrese el código
+    del producto. : 
+
+    ''',
+
+    'cambiar_cantidad_p': '''
+    Ingrese la opción:
+    1. Agregar Cantidad
+    2. Restar cantidad
+    3. <- Atrás
+    ''',
+    'agregar_cantidad_p': 'Ingrese la cantidad que desea agregar: ',
+    'restar_cantidad_p': 'Ingrese la cantidad que desea restar: ',
 
     'ver_lista_compra' : '',
 

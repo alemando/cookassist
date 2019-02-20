@@ -943,7 +943,18 @@ class CookAssist:
     
     @staticmethod
     def change_quantity():
-        pass
+        auxpro= CookAssist.ver_producto()
+        CookAssist.mensaje('cambiar_cantidad_p')
+        opcioncam= input(CookAssist.mensaje('opcion', False))
+        if opcioncam == '1':
+            canti= int(input(CookAssist.mensaje('agregar_cantidad_p', False)))
+            auxpro.cambiar_cantidad(canti)
+        elif opcioncam == '2':
+            canti= int(input(CookAssist.mensaje('restar_cantidad_p', False)))
+            canti1 = canti*(-1)
+            auxpro.cambiar_cantidad(canti1)
+        else:
+            pass
 
     @staticmethod
     def run():
