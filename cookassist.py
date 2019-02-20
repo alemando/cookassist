@@ -874,15 +874,7 @@ class CookAssist:
         Pedido._num_pedidos_eliminados += len(Pedido._list_pedidos)
         Detalle_pedido._list_detalle_pedido.clear()                       
         CookAssist.mensaje('pedido_eliminado',True)     
-
-    @staticmethod
-    def vaciar_pedidos():
-        Pedido._list_pedidos.clear()      
-        Pedido._num_pedidos_eliminados += len(Pedido._list_pedidos)
-        Detalle_pedido._list_detalle_pedido.clear()                       
-        CookAssist.mensaje('pedido_eliminado',True)          
-                                               
-                                               
+                                                   
     @staticmethod
     def menu_producto():
         menu = {}
