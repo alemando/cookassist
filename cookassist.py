@@ -874,8 +874,7 @@ class CookAssist:
                 '1': CookAssist.ver_producto,
                 '2': CookAssist.agregar_producto,
                 '3': CookAssist.editar_producto,
-                '4': CookAssist.producto_status,
-                '5': CookAssist.change_quantity
+                '4': CookAssist.change_quantity
             }
             option = input(CookAssist.mensaje('menu_producto_chef', False))
         elif CookAssist.user.get_admin():
@@ -883,8 +882,7 @@ class CookAssist:
                 '1': CookAssist.ver_producto,
                 '2': CookAssist.agregar_producto,
                 '3': CookAssist.editar_producto,
-                '4': CookAssist.producto_status,
-                '5': CookAssist.change_quantity
+                '4': CookAssist.change_quantity
             }
             option = input(CookAssist.mensaje('menu_producto_admin', False))
         else:
@@ -933,13 +931,36 @@ class CookAssist:
 
         enter1= input(CookAssist.mensaje('producto_agregado', False))
 
-    @staticmethod
-    def producto_status():
-        pass
+#    @staticmethod
+#    def producto_status():
+#        pass
 
     @staticmethod
     def editar_producto():
-        pass
+        auxpro= CookAssist.ver_producto()
+        CookAssist.mensaje('editar_producto')
+        opcionedit = input(CookAssist.mensaje('opcion', False))
+        if opcionedit == '1':
+            nombrenu = input(CookAssist.mensaje('editar_nombre_p', False))
+            auxpro.set_nombre(nombrenu)
+        elif opcionedit == '2':
+            cantnu= int(input(CookAssist.mensaje('editar_cantidad_p', False)))
+            auxpro.set_cantidad(cantnu)
+        elif opcionedit == '3':
+            CookAssist.mensaje('cambiar_estado_p')
+            opcionactiv= input(CookAssist.mensaje('opcion', False))
+            if opcionactiv == '1':
+                auxpro.set_estado(True)
+            elif opcionactiv == '2':
+                auxpro.set_estado(False)
+                auxpro.set_cantidad(0)
+            else:
+                pass
+        elif opcionedit == '4':
+            medicionnu = input(CookAssist.mensaje('cambiar_medicion_p', False))
+            auxpro.set_medicion(medicionnu)     
+        else: 
+            pass
     
     @staticmethod
     def change_quantity():

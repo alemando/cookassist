@@ -80,13 +80,13 @@ class Producto:
         return Str
 
 
-    @staticmethod
-    def desactivar_producto(codigo):
-        pro = Producto.ListProductos.get(codigo)
-        if pro.get_estado() ==  True:
-            pro.set_estado(False)
-        else:
-            pass
+##    @staticmethod
+##    def desactivar_producto(codigo):
+##        pro = Producto.ListProductos.get(codigo)
+##        if pro.get_estado() ==  True:
+##            pro.set_estado(False)
+##        else:
+##            pass
               
 
     @staticmethod

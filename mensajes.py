@@ -358,6 +358,28 @@ class Mensajes:
     'agregar_cantidad_p': 'Ingrese la cantidad que desea agregar: ',
     'restar_cantidad_p': 'Ingrese la cantidad que desea restar: ',
 
+    'editar_producto': '''
+    ¿Qué desea editar del producto? Seleccione una opción:
+
+    1. Editar nombre
+    2. Editar cantidad
+    3. Cambiar estado
+    4. Cambiar medición
+    5. <- Atrás
+    ''',
+
+    'editar_nombre_p' : 'Ingrese el nuevo nombre para el producto: ',
+    'editar_cantidad_p' : 'Ingrese la nueva cantidad: ',
+
+    'cambiar_estado_p': '''
+    1. Activar producto
+    2. Desactivar producto
+    3. <- Atrás
+    ''',
+    'cambiar_medicion_p' : 'Ingrese la nueva medición del producto (KG, L o Unidades): ',
+
+
+
     'ver_lista_compra' : '',
 
     'menu_calificacion': '''
