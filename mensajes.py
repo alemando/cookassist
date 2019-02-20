@@ -149,18 +149,16 @@ class Mensajes:
     1. Buscar producto
     2. Nuevo producto
     3. Editar producto
-    4. Activar/Desactivar producto
-    5. Añadir existencias
-    6. <-Atras
+    4. Añadir existencias
+    5. <-Atras
     Seleccione una opción: ''',
     'menu_producto_admin' : '''
     Menú Productos
     1. Buscar producto
     2. Nuevo producto
     3. Editar producto
-    4. Activar/Desactivar producto
-    5. Añadir existencias
-    6. <-Atras
+    4. Añadir existencias
+    5. <-Atras
     Seleccione una opción: ''',
     'menu_producto_user' : '''
     Menú Productos
