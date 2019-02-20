@@ -459,7 +459,7 @@ class Mensajes:
 
     'eliminar_pedido':'''
     Eliminar Pedido
-    1. Eliminar por fecha
+    1. Eliminar por codigo
     2. Eliminar ultimo pedido
     3. Eliminar todos los pedidos
     4. <- Atras
@@ -467,9 +467,8 @@ class Mensajes:
 
     'editar_pedido':'''
     Editar Pedido
-    1. Buscar por fecha (formato de un digito: 01 = 1)
-    2. Buscar por codigo
-    3. <- Atras
+    1. Buscar por codigo
+    2. <- Atras
     Seleccione una opción: ''',
 
     'pedido_eliminado':'Pedido(s) eliminado(s) correctamente... ',
@@ -487,27 +486,34 @@ class Mensajes:
     Información adicional sobre tus pedidos, por ejemplo, "No agregar sal"
     Si no quieres agregar ninguna, escribe: "Sin descripcion"... ''',
     'agregar_pedido_3':'Inserte usuario del pedido: ',
+
     'agregar_detalle_pedido':'''
-    Detalle de pedidos
-    1. Agregar detalle de pedidos
-    2. <- Terminar 
+    Agregar Productos o Recetas (Detalle de Pedido)
+    1. Agregar Producto
+    2. Agregar Receta
+    3. -> Terminar
     Seleccione una opción: ''',
-    'agregar_d_pedido_2':'Inserte cantidad:  ',
+
+    'agregar_d_pedido_2':'''
+    Inserte cantidad:  ''',
+
     'agregar_d_pedido_3':'''
     Inserte receta: 
     1. Ver recetas disponibles
     2. Elegir por codigo
-    3. No agregar receta
+    3. -> Continuar 
     Seleccione una opción: ''',
-    'agregar_d_pedido_4':'''
+
+    'pedido_code':'''
     Inserte codigo: ''',
     'receta_not_found': 'No se encontro receta...',
     'producto_not_found': 'No se encontro producto...',
+
     'agregar_d_pedido_5':'''
     Inserte producto
     1. Ver productos disponibles
     2. Elegir producto por codigo
-    3. No agregar mas productos
+    3. -> Continuar
      ''',
     
     'pedido_agregado':'''
