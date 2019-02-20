@@ -327,7 +327,7 @@ class Mensajes:
     3. <-Atras
     ''',
     'codigoP': 'Ingrese el código del producto: ',
-    'nombreP': 'Ingrese el nomber del producto: ',
+    'nombreP': 'Ingrese el nombre del producto: ',
     
     'agregar_producto_1' : 'Ingrese el nombre del producto: ',
     'agregar_producto_2' : 'Ingrese la cantidad de este producto (SÓLO LA CANTIDAD): ',
@@ -433,7 +433,7 @@ class Mensajes:
     Código: %s
     Nombre: %s
     Cantidad: %s %s
-    Necesario: %s
+    Estado: %s
     ''',
     'nombre' : 'Digite el nombre: ',
     'idFound' : 'Identificación existente',
