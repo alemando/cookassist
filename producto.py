@@ -114,8 +114,9 @@ class Producto:
     @staticmethod
     def productos_disponibles():
         lista_disponibles = []
-        for i in producto.ListProductos.values():
+        for i in Producto.ListProductos.values():
             if i.get_estado() == True:
                 lista_disponibles.append(i)
             else:
                 pass
+        return lista_disponibles

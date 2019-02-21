@@ -642,7 +642,7 @@ class CookAssist:
                         if(receta1.get_estado() == False):
                             receta1.set_estado(1)
                             
-   @staticmethod
+    @staticmethod
     def set_chef_pedido():
         option = input(CookAssist.mensaje('set_chef_pedido', False))
         while option != '3':
@@ -739,7 +739,7 @@ class CookAssist:
                             else:
                                 print(CookAssist.user._ListPedidos[ped].get_codigo(), ' No entregado')
                     elif option == '2':
-                        code = input(CookAssist.mensaje('pedido_code'False))
+                        code = input(CookAssist.mensaje('pedido_code',False))
                         for ped in CookAssist.user._ListPedidos: 
                             if ped.get_codigo() == code:
                                 for d_ped in CookAssist.user._ListPedidos[ped].get_detalle():
@@ -961,7 +961,9 @@ class CookAssist:
                 '1': CookAssist.ver_producto,
                 '2': CookAssist.agregar_producto,
                 '3': CookAssist.editar_producto,
-                '4': CookAssist.change_quantity
+                '4': CookAssist.change_quantity,
+                '5': CookAssist.ver_productos_disponibles,
+                '6': CookAssist.ver_lista_de_compras
             }
             option = input(CookAssist.mensaje('menu_producto_chef', False))
         elif CookAssist.user.get_admin():
@@ -969,7 +971,9 @@ class CookAssist:
                 '1': CookAssist.ver_producto,
                 '2': CookAssist.agregar_producto,
                 '3': CookAssist.editar_producto,
-                '4': CookAssist.change_quantity
+                '4': CookAssist.change_quantity,
+                '5': CookAssist.ver_productos_disponibles,
+                '6': CookAssist.ver_lista_de_compras
             }
             option = input(CookAssist.mensaje('menu_producto_admin', False))
         else:
@@ -1070,8 +1074,13 @@ class CookAssist:
     
     @staticmethod
     def ver_productos_disponibles():
-        
-        pass
+        listaaux = Producto.productos_disponibles()
+        if len(listaaux) != 0:
+            CookAssist.mensaje('prod_disponibles')
+            for n in range(len(listaaux)):
+                print(listaaux[n].get_codigo().zfill(6) + '  ' + listaaux[n].get_nombre())
+        else:
+            pass
     
     @staticmethod
     def ver_lista_de_compras():

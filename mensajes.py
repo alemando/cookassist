@@ -150,7 +150,9 @@ class Mensajes:
     2. Nuevo producto
     3. Editar producto
     4. Añadir existencias
-    5. <-Atras
+    5. Ver productos disponibles
+    6. Ver lista de compras
+    7. <-Atras
     Seleccione una opción: ''',
     'menu_producto_admin' : '''
     Menú Productos
@@ -158,7 +160,9 @@ class Mensajes:
     2. Nuevo producto
     3. Editar producto
     4. Añadir existencias
-    5. <-Atras
+    5. Ver productos disponibles
+    6. Ver lista de compras
+    7. <-Atras
     Seleccione una opción: ''',
     'menu_producto_user' : '''
     Menú Productos
@@ -338,6 +342,8 @@ class Mensajes:
     '''Producto agregado correctamente, presione enter para continuar... ''',
 
     'buscar_prod_c' : '#   Codigo   Nombre ',
+
+    'prod_disponibles': 'Código   Nombre',
 
     'seleccionar_producto': '''
     Para modificar la cantidad de un producto 
