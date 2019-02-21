@@ -1017,9 +1017,15 @@ class CookAssist:
         name = input(CookAssist.mensaje('agregar_producto_1', False))
         cant = int(input(CookAssist.mensaje('agregar_producto_2', False)))
         med = input(CookAssist.mensaje('agregar_producto_3', False))
-        stat = bool(input(CookAssist.mensaje('agregar_producto_5', False)))
+        opcionestad= input(CookAssist.mensaje('disponibilidad_p', False))
+        if opcionestad == '1':
+            opcionestad = True
+        elif opcionestad == '2':
+            opcionestad = False
+        else:
+            pass
 
-        Producto(name, cant, med, stat)
+        Producto(name, cant, med, opcionestad)
 
         enter1= input(CookAssist.mensaje('producto_agregado', False))
 

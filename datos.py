@@ -7,7 +7,7 @@ from producto import Producto
 class Datos:
     @staticmethod
     def generarProductos():
-        Producto('Huevos', 100, 'Unidades', True)
+        Producto('Huevos', 100, 'Unidades',True)
         Producto('Leche', 8, 'L', True)
         Producto('Papas', 25, 'KG', True)
         Producto('Sal', 6, 'KG', True)
