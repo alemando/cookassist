@@ -25,6 +25,17 @@ class Producto:
         self.set_medicion(medicion)
         self.set_estado(estado)
         Producto.ListProductos[self.get_codigo()] = self
+        archivo = open('producto_data.txt', 'a+')
+        my_producto ='\n'+ self.get_nombre()+','+str(self.get_cantidad())+','+self.get_medicion()+','+str(self.get_estado())
+        escribir = True
+        archivo.seek(0)
+        for item in archivo.readlines():
+            if item.strip() == my_producto.strip():
+                escribir = False
+        
+        if escribir:
+            archivo.write(my_producto)
+        archivo.close()
 
     def set_codigo(self):
         Producto.auto_increment_codigo +=1

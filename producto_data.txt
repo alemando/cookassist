@@ -1,0 +1,14 @@
+Huevos,100,Unidades,True
+Leche,8,L,True
+Papas,25,KG,True
+Sal,6,KG,True
+Azucar,20,KG,True
+Pastas,20,Unidades,True
+Tomate,8,KG,True
+Aceite,15,L,True
+Cebolla,6,KG,True
+Gaseosa 350ml,30,Unidades,True
+Gaseosa Mega,14,Unidades,True
+Papas paquete,18,Unidades,True
+Arroz,16,KG,True
+arepa,166,Unidades,True

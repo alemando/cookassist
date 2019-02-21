@@ -1107,7 +1107,7 @@ class CookAssist:
         CookAssist.user = Chef(True, 'alemandoa@gmail.com', 'Alejandro Jiménez', '12345', '28/10/1999')
         Usuario(False, 'ejemplo@gmail.com', 'NN', '12345', '01/01/1963')
         Usuario(True,'juan@dios.net','juan','666','01/01/0001')
-        Producto('Arroz', 10, 'kg',True)
+        
         while True:
 
             while CookAssist.user is None:
