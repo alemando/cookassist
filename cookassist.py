@@ -642,7 +642,7 @@ class CookAssist:
                         if(receta1.get_estado() == False):
                             receta1.set_estado(1)
                             
-    @staticmethod
+   @staticmethod
     def set_chef_pedido():
         option = input(CookAssist.mensaje('set_chef_pedido', False))
         while option != '3':
@@ -705,24 +705,52 @@ class CookAssist:
             if(len(Pedido._list_pedidos)>0):
                 for ped in Pedido._list_pedidos:
                     if(ped.get_estado()):
-                        print (ped.get_codigo(), ' pedido por ',ped.get_usuario(), ' Entregado')
+                        for ped2 in ped.get_detalle():
+                            if(ped2.get_producto()==None):
+                                print(ped.get_codigo(),' Receta: ',ped2.get_receta(),' Entregado')
+                            else:
+                                print(ped.get_codigo(),' Producto: ',ped2.get_producto(),' Entregado')
                     else:
-                        print(ped.get_codigo(), ' pedido por ',ped.get_usuario(), ' No entregado')
+                        for ped2 in ped.get_detalle():
+                            if(ped2.get_producto()==None):
+                                print(ped.get_codigo(),' Receta: ',ped2.get_receta(),' No Entregado')
+                            else:
+                                print(ped.get_codigo(),' Producto: ',ped2.get_producto(),' No Entregado')
             else:
                 CookAssist.mensaje('pedidos_not_found',True)
         elif(CookAssist.user.get_admin()):
             if(len(Pedido._list_pedidos)>0):
                 for ped in Pedido._list_pedidos:
-                    print('Codigo: ',ped.get_codigo(),', Usuario: ',ped.get_usuario().get_email())
+                    for ped2 in ped.get_detalle():
+                        if(ped2.get_producto()==None):
+                            print(ped.get_codigo(),' Receta: ',ped2.get_receta(),' ',ped.get_usuario().get_email())
+                        else:
+                            print(ped.get_codigo(),' Producto: ',ped2.get_producto(),' ',ped.get_usuario().get_email())
             else:
                 CookAssist.mensaje('pedidos_not_found',True)
         else:
             if(len(CookAssist.user._ListPedidos)>0):
-                for ped in CookAssist.user._ListPedidos:
-                    if(CookAssist.user._ListPedidos[ped].get_estado()):
-                        print (CookAssist.user._ListPedidos[ped].get_codigo(),' Entregado')
-                    else:
-                        print(CookAssist.user._ListPedidos[ped].get_codigo(), ' No entregado')
+                option = input(CookAssist.mensaje('ver_solo_codigo',False))
+                while(option != '3'):
+                    if(option == '1'):
+                        for ped in CookAssist.user._ListPedidos:                  
+                            if(CookAssist.user._ListPedidos[ped].get_estado()):
+                                print (CookAssist.user._ListPedidos[ped].get_codigo(),' Entregado')
+                            else:
+                                print(CookAssist.user._ListPedidos[ped].get_codigo(), ' No entregado')
+                    elif option == '2':
+                        code = input(CookAssist.mensaje('pedido_code'False))
+                        for ped in CookAssist.user._ListPedidos: 
+                            if ped.get_codigo() == code:
+                                for d_ped in CookAssist.user._ListPedidos[ped].get_detalle():
+                                    if(ped2.get_producto()==None):
+                                        print(code,' Receta: ',ped2.get_receta())
+                                    else:
+                                        print(code,' Producto: ',ped2.get_producto())
+                                
+
+
+
             else:
                 CookAssist.mensaje('pedidos_not_found',True)
 
@@ -737,6 +765,8 @@ class CookAssist:
         rec_ya = True
         ped_ya = True
 
+        no_rec_prod = False
+
         while(op1 != '3' and (rec_ya or ped_ya)): #Detalle
             d_receta = None
             d_prod = None
@@ -749,12 +779,13 @@ class CookAssist:
                     if op2 == '1':
                         CookAssist.ver_producto()
                     elif op2 == '2':
-                        d_prod_code = str(input(CookAssist.mensaje('pedido_code',False)))
+                        d_prod_code = str(input(CookAssist.mensaje('pedido_code',False))).zfill(6)
                         for p in Producto.ListProductos:
                             if(p == d_prod_code): 
                                 d_prod = Producto.ListProductos[p]
                                 find = True
                                 ped_ya = False
+                                d_cant = input(CookAssist.mensaje('agregar_d_pedido_2',False))
                                 print("Agregado") ## Organizar
                         if(not find):
                             CookAssist.mensaje('producto_not_found',True)
@@ -765,8 +796,6 @@ class CookAssist:
 
                     op2 = input(CookAssist.mensaje('agregar_d_pedido_5',False))
 
-                d_cant = input(CookAssist.mensaje('agregar_d_pedido_2',False))
-
             elif(op1 == '2'):
                 op2 = input(CookAssist.mensaje('agregar_d_pedido_3',False)) #Receta
             
@@ -774,9 +803,10 @@ class CookAssist:
                     if op2 == '1':
                         CookAssist.ver_todas_recetas()
                     elif op2 == '2':
-                        d_receta_code = (input(CookAssist.mensaje('pedido_code',False)))
+                        d_receta_code = str(input(CookAssist.mensaje('pedido_code',False))).fill(6)
                         if((Receta.get_receta_by_codigo(d_receta_code)).get_codigo() == (d_receta_code)):
                             d_receta = Receta.get_receta_by_codigo(d_receta_code).get_codigo()
+                            d_cant = input(CookAssist.mensaje('agregar_d_pedido_2',False))
                             print("Agregado") ### ORGANIZAR
                             rec_ya = False
                         else:
@@ -788,10 +818,11 @@ class CookAssist:
 
                     op2 = input(CookAssist.mensaje('agregar_d_pedido_3',False))
 
-                d_cant = input(CookAssist.mensaje('agregar_d_pedido_2',False))
+                    
 
             elif op1 == '3':
-                pass
+                if(d_receta != None or d_prod != None):
+                    no_rec_prod = True
             else:
                 CookAssist.mensaje('pedido_opcion_no_valida',True)
                 
@@ -800,30 +831,87 @@ class CookAssist:
             if(rec_ya or ped_ya): # Por si ya hay producto o receta no aparezca esta opcion
                 op1 = input(CookAssist.mensaje('agregar_detalle_pedido',False))
 
-        descripcion = input(CookAssist.mensaje('agregar_pedido_2',False))
-            
-        while descripcion == '?':
-            CookAssist.mensaje('pedido_ayuda_des',True)
+        if(no_rec_prod):
             descripcion = input(CookAssist.mensaje('agregar_pedido_2',False))
+            
+            while descripcion == '?':
+                CookAssist.mensaje('pedido_ayuda_des',True)
+                descripcion = input(CookAssist.mensaje('agregar_pedido_2',False))
 
-        d_pedido = Pedido(descripcion,dp,usuario) 
-        CookAssist.user.set_pedidos(d_pedido)
-        for d_p in dp:
-            d_p.set_pedido(d_pedido)
+            d_pedido = Pedido(descripcion,dp,usuario) 
+            CookAssist.user.set_pedidos(d_pedido)
+            for d_p in dp:
+                d_p.set_pedido(d_pedido)
 
-        print(len(dp))
+            enter = input(CookAssist.mensaje('pedido_agregado',False))
 
-        enter = input(CookAssist.mensaje('pedido_agregado',False))
+        else:
+            print('Pedido No Agregado, no hay seleccion')
 
     @staticmethod
     def editar_pedido(): #Admin 
         op1 = input(CookAssist.mensaje('editar_pedido',False))
-        while(op1 != '4'):
+        while(op1 != '2'):
             if op1 == '1':
-                code = input(CookAssist.mensaje('pedido_code',False))
+                code = str(input(CookAssist.mensaje('pedido_code',False))).zfill(6)
                 for ped in Pedido._list_pedidos:
                     if ped.get_codigo == code:
-                        pass
+                        
+                        edited_rec = False
+                        edited_prod = False
+
+                        op3 = input(CookAssist.mensaje('editar_p_o_r',False))
+                        while(op3 != '1' or op3 != '2'):
+                            CookAssist.mensaje('pedido_opcion_no_valida',True)
+                            op3 = input(CookAssist.mensaje('editar_p_o_r',False))
+
+                        if(op3 == '1'):
+                            edited_rec = True
+                        elif(op3 == '2'):
+                            edited_prod = True
+
+                        if(edited_rec): 
+                            op2 = input('editar_por_codigo_rec',False) 
+                            while op2 != '2':
+                                if(op2 == '1'):
+                                    for d_rec in ped.get_detalle():
+                                        if(d_rec.get_producto() == None):
+                                            print(d_rec.get_receta().get_nombre(),' : ',d_rec.get_receta().get_codigo())
+                                op2 = input('editar_por_codigo_rec',False) 
+                            if op2 == '2':
+                                code = str(CookAssist.mensaje('pedido_code',False)).zfill(6)
+                                for d_rec in ped.get_detalle():
+                                    if d_rec.get_producto() == None and d_rec.get_receta().get_codigo() == code:
+                                        code2 = str(input(CookAssist.mensaje('detalle_editar_receta',False)))
+                                        d_rec.set_receta(Receta.ListRecetas[code2])
+                                        CookAssist.mensaje('ped_rec_edit',True) #Receta Editada correctyamente
+                                        d_rec.set_cantidad(input('pedido_editar_cant',False))
+                                    else:
+                                        CookAssist.mensaje('receta_not_found',True)
+
+                        if(edited_prod):
+                            op2 = input('editar_por_codigo_prod',False) 
+                            while op2 != '2':
+                                if(op2 == '1'):
+                                    for d_prod in ped.get_detalle():
+                                        if(d_prod.get_receta() == None):
+                                            print(d_prod.get_producto().get_nombre(),' : ',d_rec.get_producto().get_codigo())
+                                op2 = input('editar_por_codigo_prod',False) 
+                            if op2 == '2':
+                                code = str(CookAssist.mensaje('pedido_code',False)).zfill(6)
+                                for d_prod in ped.get_detalle():
+                                    if d_prod.get_receta() == None and d_prod.get_producto().get_codigo() == code:
+                                        code2 = str(input(CookAssist.mensaje('detalle_editar_producto',False)))
+                                        d_prod.set_producto(Producto.ListProductos[code2])
+                                        CookAssist.mensaje('ped_prod_edit',True) #producto Editado Corectamente
+                                        d_rec.set_cantidad(input('pedido_editar_cant',False))
+                                    else:
+                                        CookAssist.mensaje('receta_not_found',True)
+
+                        ped.set_descripcion(input('pedido_editar_desc',False))
+
+                        CookAssist.mensaje('ped_edit',True)
+
                     else:
                         CookAssist.mensaje('pedidos_not_found',True)
             elif op1 == '2':
@@ -838,27 +926,15 @@ class CookAssist:
         op = input(CookAssist.mensaje('eliminar_pedido',False))
         while op != '4':
             if(op == '1'):
-                fecha = "Fecha: "
-                dia = input(CookAssist.mensaje('pedido_fecha_d',False))
-                fecha += str(dia)
-                mes = input(CookAssist.mensaje('pedido_fecha_m',False))
-                fecha += ("-"+str(mes))
-                año = input(CookAssist.mensaje('pedido_fecha_a',False))
-                fecha += ("-"+str(año))
-                hora = input(CookAssist.mensaje('pedido_fecha_h',False))
-                fecha += (" Hora: " + hora)
-                minuto = input(CookAssist.mensaje('pedido_fecha_min',False))
-                fecha += (":"+minuto)
-                seg = input(CookAssist.mensaje('pedido_fecha_s',False))
-                fecha += (":"+seg)
-                for f in Pedido._list_pedidos:
-                    if(f.get_fecha() == fecha):
-                        Pedido._list_pedidos.remove(f)
+                code = input(CookAssist.mensaje('pedido_code',False)).zfill(6)
+                for ped in Pedido._list_pedidos:
+                    if(ped.get_codigo() == code):
+                        Pedido._list_pedidos.remove(ped)
                         Pedido._num_pedidos_eliminados += 1
                         CookAssist.mensaje('pedido_eliminado',True)
-                        break
             elif(op == '2'):
                 Pedido._list_pedidos.pop()
+                Pedido._num_pedidos_eliminados += 1
                 CookAssist.mensaje('pedido_eliminado',True)
             elif(op == '3'):
                 CookAssist.vaciar_pedidos()
@@ -870,11 +946,12 @@ class CookAssist:
 
     @staticmethod
     def vaciar_pedidos():
-        Pedido._list_pedidos.clear()      
         Pedido._num_pedidos_eliminados += len(Pedido._list_pedidos)
+        Pedido._list_pedidos.clear()
+        Usuario._list_pedidos.clear()      
         Detalle_pedido._list_detalle_pedido.clear()                       
-        CookAssist.mensaje('pedido_eliminado',True)     
-                                                   
+        CookAssist.mensaje('pedido_eliminado',True) 
+        
     @staticmethod
     def menu_producto():
         menu = {}
