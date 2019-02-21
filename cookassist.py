@@ -1079,6 +1079,7 @@ class CookAssist:
             auxpro.cambiar_cantidad(canti1)
         else:
             pass
+        
     
     @staticmethod
     def ver_productos_disponibles():
