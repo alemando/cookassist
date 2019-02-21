@@ -84,6 +84,21 @@ class Producto:
         suma= (self.get_cantidad())+(cantidad)
         self.set_cantidad(suma)
 
+    def actualizar_en_txt(self):
+        archivo = open('producto_data.txt', 'r')
+        my_archivo = archivo.readlines()
+        my_producto_name = self.get_nombre()
+        my_producto ='\n'+ self.get_nombre()+','+str(self.get_cantidad())+','+self.get_medicion()+','+str(self.get_estado())
+        print(my_producto)
+        for x in range(len(my_archivo)):
+            if my_archivo[x].strip().find(my_producto_name) != -1:
+                my_archivo[x] = my_producto
+        
+        print(my_archivo)
+        archivo = open('producto_data.txt', 'w+')
+        archivo.writelines(my_archivo)
+        archivo.close()
+
     def __str__(self):
         Str = Mensajes.men.get('formatoProducto') % (
             self.get_codigo(), self.get_nombre(),

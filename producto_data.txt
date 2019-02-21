@@ -11,4 +11,4 @@ Gaseosa 350ml,30,Unidades,True
 Gaseosa Mega,14,Unidades,True
 Papas paquete,18,Unidades,True
 Arroz,16,KG,True
-arepa,166,Unidades,True
+Arepa,166,Unidades,True

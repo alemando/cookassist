@@ -1042,6 +1042,7 @@ class CookAssist:
             if opcionedit == '1':
                 nombrenu = input(CookAssist.mensaje('editar_nombre_p', False))
                 auxpro.set_nombre(nombrenu)
+
             elif opcionedit == '2':
                 cantnu= int(input(CookAssist.mensaje('editar_cantidad_p', False)))
                 auxpro.set_cantidad(cantnu)
@@ -1060,6 +1061,7 @@ class CookAssist:
                 auxpro.set_medicion(medicionnu)     
             else: 
                 pass
+            auxpro.actualizar_en_txt()
         else:
             pass
     

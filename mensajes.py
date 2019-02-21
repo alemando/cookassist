@@ -335,7 +335,7 @@ class Mensajes:
     
     'agregar_producto_1' : 'Ingrese el nombre del producto: ',
     'agregar_producto_2' : 'Ingrese la cantidad de este producto (SÓLO LA CANTIDAD): ',
-    'agregar_producto_3' : 'Ingrese la forma de medición de este producto (KG, L, Unidades): ',
+    'agregar_producto_3' : 'Ingrese la forma de medición de este producto (KG, L, U(Unidades)): ',
     'agregar_producto_5' : '¿este producto estará disponible? Ingrese una opción: ',
     
     'disponibilidad_p' : '''
