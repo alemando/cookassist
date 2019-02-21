@@ -20,18 +20,16 @@ class Datos:
         Producto('Gaseosa Mega', 14, 'Unidades', True)
         Producto('Papas paquete', 18, 'Unidades', True)
         Producto('Arroz', 16, 'KG', True)
-        Producto('Huevos', 100, 'Unidades', True)
-        Producto('Huevos', 100, 'Unidades', True)
-        Producto('Huevos', 100, 'Unidades', True)
-        Producto('Huevos', 100, 'Unidades', True)
-        Producto('Huevos', 100, 'Unidades', True)
-        Producto('Huevos', 100, 'Unidades', True)
-        Producto('Huevos', 100, 'Unidades', True)
-        Producto('Huevos', 100, 'Unidades', True)
-        Producto('Huevos', 100, 'Unidades', True)
+##        Producto('Huevos', 100, 'Unidades', True)
+##        Producto('Huevos', 100, 'Unidades', True)
+##        Producto('Huevos', 100, 'Unidades', True)
+##        Producto('Huevos', 100, 'Unidades', True)
+##        Producto('Huevos', 100, 'Unidades', True)
+##        Producto('Huevos', 100, 'Unidades', True)
+##        Producto('Huevos', 100, 'Unidades', True)
+##        Producto('Huevos', 100, 'Unidades', True)
+##        Producto('Huevos', 100, 'Unidades', True)
 
-
-        pass
         #Usuario(True, 'CC', '1238938010', 'Alejandro Jiménez', '12345', '28/10/1999')
 '''
     @staticmethod
