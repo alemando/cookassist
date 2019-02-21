@@ -1017,7 +1017,7 @@ class CookAssist:
         name = input(CookAssist.mensaje('agregar_producto_1', False))
         cant = input(CookAssist.mensaje('agregar_producto_2', False))
         med = input(CookAssist.mensaje('agregar_producto_3', False))
-        stat = input(CookAssist.mensaje('agregar_producto_5', False))
+        stat = bool(input(CookAssist.mensaje('agregar_producto_5', False)))
 
         Producto(name, cant, med, stat)
 

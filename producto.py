@@ -115,7 +115,7 @@ class Producto:
     def productos_disponibles():
         lista_disponibles = []
         for i in Producto.ListProductos.values():
-            if i.get_estado() == True:
+            if i.get_estado():
                 lista_disponibles.append(i)
             else:
                 pass
