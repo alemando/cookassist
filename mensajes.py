@@ -452,7 +452,7 @@ class Mensajes:
     Menu Pedido Chef
     1. Ver Pedidos
     2. Elegir Pedido Sin Entregar
-    3. Atras
+    3. <- Atras
     Seleccione una opción: ''',
 
     'pedido_admin':'''
@@ -467,7 +467,7 @@ class Mensajes:
     Menu Pedido Usuario
     1. Ver Pedidos
     2. Agregar Pedido
-    3. Atras
+    3. <- Atras
     Seleccione una opción: ''',
 
     'set_chef_pedido':'''
@@ -475,6 +475,13 @@ class Mensajes:
     1. Elegir primer pedido encontrado
     2. Elegir por fecha
     3. <- Atras 
+    Seleccione una opción: ''',
+
+    'ver_solo_codigo':'''
+    Tus Pedidos
+    1. Ver codigos de tus pedidos
+    2. Ver detalles de tus pedidos (Codigo del pedido necesario)
+    3. <- Atras
     Seleccione una opción: ''',
 
     'eliminar_pedido':'''
@@ -491,6 +498,38 @@ class Mensajes:
     2. <- Atras
     Seleccione una opción: ''',
 
+    'editar_p_o_r':'''
+    Editar Pedido
+    1. Editar Receta
+    2. Editar Producto
+    Seleccione una opción: ''',
+
+    'editar_por_codigo_rec':'''
+    Editar Receta 
+    1. Ver recetas del pedido
+    2. Editar receta por su codigo
+    Seleccione una opción: ''',
+
+    'detalle_editar_receta':'''
+    Introducir codigo de la nueva receta: ''',
+
+    'editar_por_codigo_prod':'''
+    Editar Producto
+    1. Ver productos del pedido
+    2. Editar producto por su codigo
+    Seleccione una opción: ''',
+
+    'detalle_editar_producto':'''
+    Introducir codigo del nuevo producto: ''',
+
+    'pedido_editar_cant':'''
+    Editar Cantidad: ''',
+
+    'pedido_editar_desc':'''
+    Editar Descripcion: ''',
+    'ped_rec_edit':'Receta Editada Correctamente... ',
+    'ped_prod_edit':'Producto Editado Correctamente... ',
+    'ped_edit':'Pedido Editado Correctamente...',
     'pedido_eliminado':'Pedido(s) eliminado(s) correctamente... ',
     'pedidos_false_not_found':'''No se encontraron pedidos (No entregados)... 
     ''',
