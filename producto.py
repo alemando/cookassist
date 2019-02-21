@@ -107,7 +107,7 @@ class Producto:
     def lista_de_compras():
         lista_compras=[]
         for i in Producto.ListProductos.values():
-            if i.get_cantidad() <= 10:
+            if int(i.get_cantidad()) < 5:
                 lista_compras.append(i)
         return lista_compras 
     
@@ -115,7 +115,7 @@ class Producto:
     def productos_disponibles():
         lista_disponibles = []
         for i in Producto.ListProductos.values():
-            if i.get_estado():
+            if i.get_estado() and i.get_cantidad() !=0:
                 lista_disponibles.append(i)
             else:
                 pass

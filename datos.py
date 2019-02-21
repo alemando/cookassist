@@ -5,8 +5,32 @@ from producto import Producto
 # @Alejandro
 
 class Datos:
-
+    @staticmethod
     def generarProductos():
+        Producto('Huevos', 100, 'Unidades', True)
+        Producto('Leche', 8, 'L', True)
+        Producto('Papas', 25, 'KG', True)
+        Producto('Sal', 6, 'KG', True)
+        Producto('Azucar', 20, 'KG', True)
+        Producto('Pastas', 20, 'Unidades', True)
+        Producto('Tomate', 8, 'KG', True)
+        Producto('Aceite', 15, 'L', True)
+        Producto('Cebolla', 6, 'KG', True)
+        Producto('Gaseosa 350ml', 30, 'Unidades', True)
+        Producto('Gaseosa Mega', 14, 'Unidades', True)
+        Producto('Papas paquete', 18, 'Unidades', True)
+        Producto('Arroz', 16, 'KG', True)
+        Producto('Huevos', 100, 'Unidades', True)
+        Producto('Huevos', 100, 'Unidades', True)
+        Producto('Huevos', 100, 'Unidades', True)
+        Producto('Huevos', 100, 'Unidades', True)
+        Producto('Huevos', 100, 'Unidades', True)
+        Producto('Huevos', 100, 'Unidades', True)
+        Producto('Huevos', 100, 'Unidades', True)
+        Producto('Huevos', 100, 'Unidades', True)
+        Producto('Huevos', 100, 'Unidades', True)
+
+
         pass
         #Usuario(True, 'CC', '1238938010', 'Alejandro Jiménez', '12345', '28/10/1999')
 '''

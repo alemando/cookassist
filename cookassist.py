@@ -1015,7 +1015,7 @@ class CookAssist:
     @staticmethod
     def agregar_producto():
         name = input(CookAssist.mensaje('agregar_producto_1', False))
-        cant = input(CookAssist.mensaje('agregar_producto_2', False))
+        cant = int(input(CookAssist.mensaje('agregar_producto_2', False)))
         med = input(CookAssist.mensaje('agregar_producto_3', False))
         stat = bool(input(CookAssist.mensaje('agregar_producto_5', False)))
 
@@ -1114,3 +1114,4 @@ class CookAssist:
 if __name__ == '__main__':
     
     CookAssist.run()
+
