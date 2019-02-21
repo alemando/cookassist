@@ -1084,7 +1084,14 @@ class CookAssist:
     
     @staticmethod
     def ver_lista_de_compras():
-        pass
+        listcompra= Producto.lista_de_compras()
+        if len(listcompra) != 0:
+            CookAssist.mensaje('prod_a_comprar')
+            for i in range(len(listcompra)):
+                print(listcompra[i].get_codigo().zfill(6) + '  '+ listcompra[i].get_nombre() +'   '+str(listcompra[i].get_cantidad())+listcompra[i].get_medicion())
+        else:
+            return CookAssist.mensaje('prod_suficientes')
+        
 
     @staticmethod
     def run():

@@ -345,6 +345,10 @@ class Mensajes:
 
     'prod_disponibles': 'Código   Nombre',
 
+    'prod_a_comprar' : 'Código  Nombre  Cantidad actual',
+
+    'prod_suficientes' : 'Actualmente la cantidad de productos en el almacen es suficiente',
+
     'seleccionar_producto': '''
     Para modificar la cantidad de un producto 
     primero debe seleccionarlo, 
