@@ -565,7 +565,12 @@ class Mensajes:
     ''',
     'pedido_opcion_no_valida':'''Opción no valida, seleccione opcion correcta...
     ''',
-
+    'code_not_found':'''
+    Codigo no valido...
+    ''',
+    'pedido_rp_agregado':'''
+    Agregado corretamente...
+    ''',
 
     'pedidos_not_found':'No se encontraron pedidos, agregue alguno primero...',
     'agregar_pedido_2':'''
