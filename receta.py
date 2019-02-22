@@ -9,7 +9,7 @@ class Receta:
 
     def __init__(
         self, nombre, 
-        tiempo_preparacion, estado, DetalleReceta):
+        tiempo_preparacion, estado, _ListDetalleRecetas ):
         '''ATTRIBUTES
             self._codigo
             self._nombre
@@ -21,7 +21,7 @@ class Receta:
         self.set_nombre(nombre)
         self.set_tiempo_preparacion(str(tiempo_preparacion))
         self.set_estado(estado)
-        self._ListDetalleRecetas = []
+        self._ListDetalleRecetas = _ListDetalleRecetas
         self._ListDetallePedidos = []
         self._ListCalificaciones = []
         Receta.ListRecetas[self.get_codigo()] = self
@@ -72,22 +72,23 @@ class Receta:
     def get_calificaciones(self):
         return self._ListCalificaciones
 
-    def ver_detalle_receta(self):
-        lista=self.get_detalle_recetas()
-        for i in range(0, len(lista)):
-            print()
-            print (codigo)
-            producto = self._ListDetalleRecetas[i].DetalleReceta.get_producto()
-            print (producto)
-            cantidad = self._ListDetalleRecetas[i].get_cantidad()
-            print (cantidad)
-            return str(codigo, producto, cantidad)    
+    def delete_detalle_recetas(self):
+        for i in range(0, len(self._ListDetalleRecetas)):
+            self._ListDetalleRecetas.pop(i) 
+
+
+
+            
+
+                
 
 
     def toString(self):
         Str =('codigo: '+self.get_codigo() +' nombre: '+ self.get_nombre()
-            +' tiempo_de_preparacion: '+self.get_tiempo_preparacion()
-            + 'Detalle Receta'+ str(self.ver_detalle_receta()))
+            +' tiempo_de_preparacion: '+self.get_tiempo_preparacion() )
+        for rec in self._ListDetalleRecetas:
+            for i in range(0, len(rec)):
+                Str = Str + rec[i].toString()  
 
         return Str
 
@@ -103,4 +104,5 @@ class Receta:
         for receta in Receta.ListRecetas.values():
             if receta.get_nombre().lower().find(receta1.lower())!= -1:
                 listaCoincidencias.append(receta)
-                return listaCoincidencias  
+                return listaCoincidencias    
+        
