@@ -1,4 +1,4 @@
-from datetime import datetime
+from datetime import datetime,timedelta
 
 class Pedido():
 
@@ -17,13 +17,14 @@ class Pedido():
         self._entregado (estado)
         """
         self._list_detalle = []
-        self.set_codigo(Pedido._num_pedidos)
+        self.set_codigo(str(Pedido._num_pedidos))
         self.set_fecha() # Recordatorio: El metodo set_fecha setea 
                               # fecha con cualquier parametro
         self.set_estado(entregado)
         self.set_detalle(detalle)
         self.set_descripcion(descripcion)
         self.set_usuario(usuario)
+        self.set_tiempo()
 
         Pedido._num_pedidos += 1
         Pedido._list_pedidos.append(self)
@@ -41,6 +42,22 @@ class Pedido():
     def set_estado(self,entregado):
         self._entregado = entregado
 
+    def set_tiempo(self):
+        h = str(datetime.now().hour).zfill(2)
+        m = str(datetime.now().minute).zfill(2)
+        s = str(datetime.now().second).zfill(2)
+        self._tiempo = h+':'+m+':'+s
+
+    def get_tiempo(self):
+        return self._tiempo 
+
+    def restar_hora(self,hora1,hora2):
+        formato = "%H:%M:%S"
+        h1 = datetime.strptime(hora1, formato)
+        h2 = datetime.strptime(hora2, formato)
+        resultado = h1 - h2
+        return str(resultado)
+
     def get_fecha(self):
         return self._fecha
 
@@ -48,7 +65,7 @@ class Pedido():
         return self._codigo
 
     def set_codigo(self,codigo):
-        self._codigo = codigo
+        self._codigo = codigo.zfill(6)
 
     def set_descripcion(self,descripcion):
         self._descripcion = descripcion
