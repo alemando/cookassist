@@ -1,4 +1,4 @@
-Huevos,100,Unidades,True
+Huevos,223,Unidades,True
 Leche,8,L,True
 Papas,25,KG,True
 Sal,6,KG,True
