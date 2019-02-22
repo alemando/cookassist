@@ -175,26 +175,22 @@ class Mensajes:
     2. Nueva receta
     3. Editar receta
     4. Activar/Desactivar receta
-    5. Ver mejores recetas
-    6. Ver recetas activas/inactivas
-    7. <-Atras
+    5. Ver recetas activas/inactivas
+    6. <-Atras
     Seleccione una opción: ''',
     'menu_receta_admin' : '''
     Menú Receta
     1. Buscar receta
     2. Nueva receta
     3. Editar receta
-    4. Activar/Desactivar receta
-    5. Ver mejores recetas
-    6. Ver recetas activas/inactivas
-    7. <-Atras
+    4. Activar/Desactivar recetas
+    5. Ver recetas activas/inactivas
+    6. <-Atras
     Seleccione una opción: ''',
     'menu_receta_user' : '''
     Menú Receta
-    1. Receta activa/inactiva
-    2. Ver mejores recetas
-    3. Ver recetas rapidas
-    4. <-Atras
+    1. Receta activa/inactivas
+    2. <-Atras
     Seleccione una opción: ''',
     'opcionesDetalleReceta1':'''
     Opciones Detalle Receta
@@ -253,11 +249,29 @@ class Mensajes:
     3. Editar Detalle Receta
     4. <- Atras
     ''',
-    'editar_DetalleReceta': '''
+    'editar_DetalleReceta1': '''
     Editar Detalle Receta
     1. Editar cantidad
     2. Eliminar detalle
     3. <- Atras
+    ''',
+    'agregar_d_receta_producto':'''
+    Producto
+    1. Ver productos
+    2. Agregar Producto
+    3. <- Atras
+    ''',
+    'codigo_detalle':'''
+    Codigo del detalle que deseo eliminar
+    ''',
+    'cod_rece_edit':'''
+    codigo de receta que deseo editar
+    ''',
+    'cod_producto':'''
+    Codigo producto
+    ''',
+    'producto_opcion_no_valida':'''
+    No valida
     ''',    
     'menu_pedio_chef' : '''
     Menú Pedido
