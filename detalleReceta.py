@@ -1,26 +1,27 @@
-
-
+from producto import Producto
 class DetalleReceta:
 
     ListDetalleRecetas = []
 
     def __init__(
-        self, numero, cantidad, 
+        self, codigo, cantidad, 
         producto, receta):
         '''ATTRIBUTES
-            self._numero
             self._cantidad
             self._producto
             self._receta
         '''
-        self.set_numero(numero)
+        self.set_codigo(codigo)
         self.set_cantidad(cantidad)
         self.set_producto(producto)
         self.set_receta(receta)
         DetalleReceta.ListDetalleRecetas.append(self)
 
     def get_codigo(self):
-        return '%d-%s'%(self.get_receta.get_codigo(), self.get_numero)
+        return self._codigo
+
+    def set_codigo(self, codigo):
+        self._codigo = codigo 
 
     def set_numero(self, numero):
         self._numero = numero
@@ -47,9 +48,8 @@ class DetalleReceta:
         return self._receta
 
     def toString(self):
-        Str = Mensajes.men.get('formatoDetalleReceta') % (
-            self.get_codigo(), 
-            self.producto.get_nombre(), self.get_cantidad())
+        Str = ( 'codigo: '+ self.get_codigo() +' producto:'+self.get_producto().get_nombre() +
+                ' cantidad: '+ self.get_cantidad())
         return Str
 
     @staticmethod
@@ -60,6 +60,8 @@ class DetalleReceta:
                 break
         return -1
 
-    @staticmethod
+    
     def delete_element(posicion):
         DetalleReceta.ListDetalleRecetas.pop(posicion)
+        return DetalleReceta.ListDetalleRecetas
+
