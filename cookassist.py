@@ -471,8 +471,7 @@ class CookAssist:
                 '2': CookAssist.agregar_receta,
                 '3': CookAssist.editar_receta,
                 '4': CookAssist.activar_desactivar_receta,
-                '5': CookAssist.ver_mejores_recetas,
-                '6': CookAssist.ver_todas_recetas,
+                '5': CookAssist.ver_todas_recetas,
                 }
             option = input(CookAssist.mensaje('menu_receta_chef', False))
         
@@ -482,22 +481,20 @@ class CookAssist:
                 '2': CookAssist.agregar_receta,
                 '3': CookAssist.editar_receta,
                 '4': CookAssist.activar_desactivar_receta,
-                '5': CookAssist.ver_mejores_recetas,
-                '6': CookAssist.ver_todas_recetas,
+                '5': CookAssist.ver_todas_recetas,
                 }
             option = input(CookAssist.mensaje('menu_receta_admin', False))
         else:
             menu = {
                 '1': CookAssist.ver_todas_recetas,
-                '2': CookAssist.ver_mejores_recetas,
-                '3': CookAssist.ver_recetas_rapidas
+                
                 }
             option = input(CookAssist.mensaje('menu_receta_user', False))
         return menu.get(option)
 
-                                        
-        
     
+
+
     @staticmethod
     def ver_receta():
         
@@ -508,6 +505,9 @@ class CookAssist:
             receta= Receta.get_receta_by_codigo(codigo)
             if receta is not None:
                 print(receta.toString())
+                #for rec in rec.get_detalle_recetas():
+                            #print(rec.get_codigo(),' Producto: ',rec2.get_producto(), 'cantidad', rec2.get_cantidad())           
+
                 return receta
             else:
                 CookAssist.mensaje('codeNotFound')
@@ -542,14 +542,6 @@ class CookAssist:
 
 
             
-    @staticmethod
-    def ver_mejores_recetas():
-        pass
-
-
-    @staticmethod
-    def ver_recetas_rapidas():
-        pass    
 
 
             
@@ -564,16 +556,35 @@ class CookAssist:
         estado = int(input(CookAssist.mensaje('estado', False)))
         CookAssist.mensaje('opcionesDetalleReceta1')
         opcion = input(CookAssist.mensaje('opcion', False))
+        vr_receta=Receta(nombre, tiempo_preparacion, estado, [])
         dr=[]
         while(opcion != '2'):
+            d_producto = None
             if opcion == '1':
-                producto = input(CookAssist.mensaje('producto', False))
-                cantidad = input(CookAssist.mensaje('cantidad', False))
-                receta = input(CookAssist.mensaje('receta', False))
-                dr.append(DetalleReceta(cantidad, producto, receta))
+                op2 = input(CookAssist.mensaje('agregar_d_receta_producto',False)) #Producto
+                find = False
+                while(op2 != '3'):
+                    if op2 == '1':
+                        CookAssist.ver_productos_disponibles()
+                    elif op2 == '2':
+                        cod_producto = input(CookAssist.mensaje('cod_producto', False))
+                        for p in Producto.ListProductos:
+                            if(p == cod_producto): 
+                                d_producto = Producto.ListProductos[p]
+                                find = True
+                                print("Agregado") ## Organizar
+                        if(not find):
+                            CookAssist.mensaje('producto_not_found',True)
+                    
+                    else:
+                        CookAssist.mensaje('producto_opcion_no_valida',False)
+                    op2 = input(CookAssist.mensaje('agregar_d_receta_producto',False))
+                cantidad = input(CookAssist.mensaje('cantidad', False))    
+                vr_codigo = vr_receta.get_codigo() + d_producto.get_codigo()
+                dr.append(DetalleReceta(vr_codigo, cantidad, d_producto, vr_receta))
             opcion = input(CookAssist.mensaje('opcion', False))
 
-        vr=Receta(nombre, tiempo_preparacion, estado, dr)
+        vr_receta.set_detalle_recetas(dr)
         #Receta.ListRecetas[(self.get_codigo())] = vr 
         enter = input(CookAssist.mensaje('Receta_Agregada', False))   
 
@@ -581,34 +592,46 @@ class CookAssist:
             
     @staticmethod
     def editar_receta():
-        receta = CookAssist.ver_receta()
+        CookAssist.ver_todas_recetas()
+        codigo = input(CookAssist.mensaje('cod_rece_edit', False))
+        receta = Receta.get_receta_by_codigo(codigo)
         CookAssist.mensaje('editar_receta')
         opcion = input(CookAssist.mensaje('opcion', False))
         if opcion == '1':
             nombre = input(CookAssist.mensaje('nombre', False))
-            Receta.set_nombre(nombre)
+            receta.set_nombre(nombre)
         elif opcion == '2':
             tiempo = input(CookAssist.mensaje('tiempo_preparacion', False))
-            Receta.set_tiempo_preparacion(tiempo)
+            receta.set_tiempo_preparacion(tiempo)
         elif opcion == '3':
-            '''
-            CookAssist.mensaje('editar_DetalleReceta')
-            opcion = input(CookAssist.mensaje('opcion', False)
-            if opcion == '1':
-                codigo = input(CookAssist.mensaje('codigo', False))
-                producto = get_producto_by_codigo(codigo)           
-                cantidad = input(CookAssist.mensaje('cantidad', False))
-                DetalleReceta.set_cantidad(cantidad) 
-                # se supone quedo saber que a que produto le estoy cambiando la cantidad           
-            elif opcion == '2':
-                pass
-            '''    
+            CookAssist.mensaje('editar_DetalleReceta1')
+            opcion1 = input(CookAssist.mensaje('opcion', False))
+            if opcion1 == '1':
+                codigo = input(CookAssist.mensaje('cod_producto', False))
+                producto = Producto.get_producto_by_codigo(codigo)           
+                for rec in receta._ListDetalleRecetas:
+                    for i in range(0, len(rec)):
+                        if (rec[i].get_producto() == producto):
+                            cantidad = input(CookAssist.mensaje('cantidad', False))
+                            rec[i].set_cantidad(cantidad)
+            
+            elif opcion1 == '2':
+                codigo = input(CookAssist.mensaje('codigo_detalle', False))
+                posicion = DetalleReceta.get_posicion_lista(codigo)
+                vr_detalle=DetalleReceta.delete_element(posicion)
+                receta.delete_detalle_recetas()
+                receta.set_detalle_recetas(vr_detalle)
+
+
+                
+                
 
                            
                            
             
     @staticmethod
     def activar_desactivar_receta():
+
         CookAssist.mensaje('opciones_activar_desactivar')
         opcion = input(CookAssist.mensaje('opcion', False))
         if opcion == '1':
